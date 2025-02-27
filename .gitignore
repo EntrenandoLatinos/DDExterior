@@ -1,0 +1,24 @@
+# Archivos de caché
+__pycache__/
+*.pyc
+
+# JetBrains IDE
+.idea/
+
+# App migrations, media folders, settings
+dd_exterior/app_core/migrations/
+dd_exterior/app_user/migrations/
+dd_exterior/media/
+dd_exterior/static/
+dd_exterior/settings/development.py/
+
+# Environment
+dd_exterior/.env
+
+# Archivos de migraciones
+migrations/*
+*_initial.py
+
+# Base de datos SQLite
+*.sqlite3
+*.db
