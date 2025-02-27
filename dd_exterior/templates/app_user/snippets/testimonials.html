@@ -1,0 +1,58 @@
+{% load static %}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left" style="padding-bottom: 12px;">
+            <h3> Testimonials <small></small> </h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>List <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <a href="{% url 'app_user:testimonials_create' %}" type="button" class="btn btn-info" style="color: white;">Add Testimonial</a>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="row">
+                        {% for testimonial in testimonials %}
+                            <div class="col-lg-2 col-md-12">
+                                <div class="caption">
+                                    <a href="{% url 'app_user:testimonial_update' testimonial.id %}"><p style="text-align: center;">{{testimonial.name}}</p></a>
+                                </div>
+                                <div class="thumbnail" style="height: 100%;">
+                                    <div class="image view view-first" style="height: 100%;">
+                                        <a href="{% url 'app_user:testimonial_update' testimonial.id %}">
+                                        {% if testimonial.image %}
+                                            <img style="width: 100%; display: block;" src="{{ testimonial.image.url }}" alt="image" />
+                                        {% else %}
+                                            <img style="width: 100%; display: block;" src="{% static 'app_user/images/user.png' %}" alt="image">
+                                        {% endif %}
+                                            
+                                            
+                                            <!-- <div class="mask">
+                                                <p>Your Text</p>
+                                                <div class="tools tools-bottom">
+                                                    <a href="#"><i class="fa fa-link"></i></a>
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="#"><i class="fa fa-times"></i></a>
+                                                </div>
+                                            </div> -->
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

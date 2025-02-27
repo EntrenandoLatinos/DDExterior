@@ -1,0 +1,148 @@
+{% load static %}
+{% with name_company='Revisar la base de account, linea 2' bg_base_image='yes' %}
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block head_title %}{{name_company}} | {% endblock head_title %}</title>
+        <!-- FAVICONS ICON -->
+        <link href="{% static 'app_core/images/favicon.png' %}" rel="icon">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{% static 'app_user/vendors/bootstrap/dist/css/bootstrap.min.css' %}">
+        <!-- jQuery Lib -->
+        <script src="{% static 'app_user/vendors/jquery/dist/jquery.min.js' %}"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous" />
+        <style>
+            :root {
+                /* fondo base */
+                --bg-color-1: #d2151e;
+                --bg-color-2: #152332;
+                /* formulario login y logout */
+                --bg-brand: blue;
+                --bg-btn-form-account-submit: gray;
+                --bg-btn-form-account-campos: green;
+                --bg-btn-form-account-back: black;
+                --color-txt-form-account: white;
+            }
+
+            .brand_logo_container {
+                position: absolute;
+                height: 170px;
+                width: 170px;
+                top: -75px;
+                border-radius: 50%;
+                background-color: var(--bg-brand);
+                padding: 10px;
+                text-align: center;
+            }
+
+            .brand_logo {
+                height: 150px;
+                width: 150px;
+                border-radius: 50%;
+                border: 2px solid white;
+            }
+
+            .input-group-text {
+                background: var(--bg-btn-form-account-campos) !important;
+                color: white !important;
+                border: 0 !important;
+                border-radius: 0.25rem 0 0 0.25rem !important;
+            }
+
+            .input_user,
+            .input_pass:focus {
+                box-shadow: none !important;
+                outline: 0px !important;
+            }
+
+            html,
+            body,
+            #container-body {
+                height: 100%;
+            }
+
+            #container-body.bg-color-base {
+                background: linear-gradient(to right, var(--bg-color-1) 0%, var(--bg-color-2) 100%);
+            }
+
+            #container-body.bg-image-base {
+                position: relative;
+                background: url({% static 'app_core/images/base-account.webp' %}) no-repeat center center;
+                background-size: cover;
+            }
+
+            #container-body.bg-image-base::before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background-color: rgba(10, 10, 10, 0.3);
+            }
+
+            #container-body .container {
+                padding-top: 7rem !important;
+                padding-bottom: 7rem !important;
+                height: inherit;
+            }
+
+            @media screen and (max-height: 900px) {
+                #container-body {
+                    height: auto;
+                }
+            }
+
+            #container-login .btn-login-dev {
+                background-color: var(--bg-btn-form-account-submit);
+                color: var(--color-txt-form-account);
+            }
+
+            #container-logout .btn-logout-dev {
+                background-color: var(--bg-btn-form-account-submit);
+                color: var(--color-txt-form-account);
+            }
+
+            #container-logout .btn-back-dev {
+                background-color: var(--bg-btn-form-account-back);
+                color: var(--color-txt-form-account);
+            }
+
+            #container-logout .row>div>img,
+            #container-login .row>div>img {
+                border-radius: 1rem 0 0 1rem; 
+                object-fit: cover;
+            }
+
+        </style>
+        {% block extra_styles %} {% endblock extra_styles %}
+    </head>
+
+    <body>
+        <section id="container-body" class="{% if bg_base_image != 'yes' %}bg-color-base{% else %}bg-image-base{% endif %}">
+            <div class="container">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-xl-10">
+                        {% block content %}{% endblock content %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            let itemNameCompany = document.querySelectorAll('.name-company')
+
+            itemNameCompany.forEach(element => {
+                element.textContent = '{{name_company}}'
+            });
+        </script>
+
+        {% block extra_javascript %}{% endblock extra_javascript %}
+    </body>
+
+    </html>
+{% endwith %}

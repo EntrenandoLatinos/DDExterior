@@ -1,0 +1,13 @@
+{% load static %}
+
+<span class="testimonial-position px-3">
+    <ul class="" style="display: flex; justify-content: center; padding-left: 0;">
+        {% for i in "12345" %}
+            {% if i <= testimonial.stars %} 
+                <i class="fa fa-star mx-1" style="color: #ffc700;"></i>
+            {% else %}
+                <i class="fa fa-star mx-1" style="color: lightslategray;"></i>
+            {% endif %}
+        {% endfor %}
+      </ul>
+</span>

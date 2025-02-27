@@ -1,0 +1,56 @@
+{% load static %}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left" style="padding-bottom: 12px;">
+            <h3> Services <small></small> </h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>List <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <a href="{% url 'app_user:service_create' %}" type="button" class="btn btn-info" style="color: white;">Add Service</a>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="row">
+                        {% for service in services %}
+                            <div class="col-lg-4 col-md-12">
+                                <div class="caption">
+                                    <a href="{% url 'app_user:service_update' service.id %}"><p style="text-align: center;">{{service.title}}</p></a>
+                                </div>
+                                <div class="thumbnail" style="height: 100%;">
+                                    <div class="image view view-first" style="height: 100%;">
+                                        <a href="{% url 'app_user:service_update' service.id %}">
+                                            {% if service.image %}
+                                                <img style="width: 100%; display: block;" src="{{ service.image.url }}" alt="image" />
+                                            {% else %}
+                                                <img alt="SEO" src="{% static 'app_core/construction/images/service-1.jpg' %}">
+                                            {% endif %}
+                                            <!-- <div class="mask">
+                                                <p>Your Text</p>
+                                                <div class="tools tools-bottom">
+                                                    <a href="#"><i class="fa fa-link"></i></a>
+                                                    <a href="#"><i class="fa fa-pencil"></i></a>
+                                                    <a href="#"><i class="fa fa-times"></i></a>
+                                                </div>
+                                            </div> -->
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

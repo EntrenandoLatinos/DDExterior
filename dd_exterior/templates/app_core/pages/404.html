@@ -1,0 +1,154 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="50x50" href="{% static 'app_core/images/favicon.png' %}">
+
+  <title>not found</title>
+  <style>
+    :root {
+      --btn-color: #b20606;
+      --btn-text-color: #fff;
+      --btn-hover-color: #820303;
+
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      /* Cambiado de height a min-height */
+      background-color: #e5e5e5;
+      font-family: 'Nunito Sans', sans-serif;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1200px;
+      /* Limita el ancho del contenedor */
+      width: 100%;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      padding-top: 30px;
+      /* Ajustado el padding-top */
+    }
+
+    @media (min-width: 768px) {
+      .flex-container {
+        flex-direction: row;
+        padding-top: 0;
+        /* Elimina padding en pantallas medianas */
+      }
+    }
+
+    .image-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+      .image-container {
+        width: 50%;
+        justify-content: flex-end;
+      }
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      max-width: 500px;
+    }
+
+    .text-container {
+      /* width: 100%; */
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .text-container {
+        {% comment %} width: 50%; {% endcomment %}
+      }
+    }
+
+    .text-container h1 {
+      font-size: 6rem;
+      /* Ajustado tamaño para pantallas pequeñas */
+      font-weight: bold;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    @media (min-width: 768px) {
+      .text-container h1 {
+        font-size: 9rem;
+        /* Tamaño original para pantallas grandes */
+      }
+    }
+
+    .text-container h2 {
+      margin-top: 1rem;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #2d3748;
+    }
+
+    .text-container p {
+      margin-top: 1.5rem;
+      font-size: 1.125rem;
+      color: #4a5568;
+      {% comment %} max-width: 500px; {% endcomment %}
+    }
+
+    .text-container a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      color: var(--btn-text-color);
+      background-color: var(--btn-color);
+      border-radius: 9999px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .text-container a:hover {
+      background-color: var(--btn-hover-color);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="flex-container">
+      <!-- Imagen -->
+      <div class="image-container">
+        <img src="{% static 'app_core/images/logo_404.webp' %}"
+          alt="error 404">
+      </div>
+      <!-- Texto -->
+      <div class="text-container">
+        <h1>404</h1>
+        <h2>UH OH! You're lost.</h2>
+        <p>The page you are looking for does not exist. How you got here is a mystery. But you can click the button
+          below
+          to go back to the homepage.</p>
+        <a href="{{redirect_url}}">BACK</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

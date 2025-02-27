@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1" name="viewport"/>
+	<meta name="description" content="Domicilios"/>
+	<title>{% block head_title %}Company Name | {% endblock head_title %}</title>
+	<!-- google font -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+				type="text/css"/>
+	<!-- icons -->
+	<link href="{% static 'app_core/fonts/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet"
+				type="text/css"/>
+	<link rel="stylesheet"
+				href="{% static 'app_core/assets/plugins/iconic/css/material-design-iconic-font.min.css' %}">
+	<!-- bootstrap -->
+	<link href="{% static 'app_core/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"
+				type="text/css"/>
+	<!-- style -->
+	<link rel="stylesheet" href="{% static 'app_core/assets/css/pages/extra_pages.css' %}">
+	<!-- Theme Styles -->
+	<link href="{% static 'app_core/assets/css/theme/light/theme_style.css' %}" rel="stylesheet"
+				id="rt_style_components" type="text/css"/>
+	<link href="{% static 'app_core/assets/css/plugins.min.css' %}" rel="stylesheet" type="text/css"/>
+	<link href="{% static 'app_core/assets/css/theme/light/style.css' %}" rel="stylesheet" type="text/css"/>
+	<link href="{% static 'app_core/assets/css/responsive.css' %}" rel="stylesheet" type="text/css"/>
+	<link href="{% static 'app_core/assets/css/theme/light/theme-color.css' %}" rel="stylesheet" type="text/css"/>
+	<!-- Jquery Toast css -->
+	<link rel="stylesheet"
+				href="{% static 'app_core/assets/plugins/jquery-toast/distribution/jquery.toast.min.css' %}">
+	<!-- favicon -->
+    <link href="{% static 'app_core/images/favicon.png' %}" rel="icon">
+</head>
+
+<body>
+
+<div class="limiter">
+	<div class="container-login100 page-background">
+		<div class="wrap-login100">
+			{% block content %} {% endblock content %}
+		</div>
+	</div>
+</div>
+
+<!-- start js include path -->
+<script src="{% static 'app_core/assets/plugins/jquery/jquery.min.js' %}"></script>
+<!-- bootstrap -->
+<script src="{% static 'app_core/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'app_core/assets/js/pages/extra-pages/pages.js' %}"></script>
+<!-- notifications -->
+<script src="{% static 'app_core/assets/plugins/jquery-toast/distribution/jquery.toast.min.js' %}"></script>
+<script src="{% static 'app_core/assets/plugins/jquery-toast/distribution/toast.js' %}"></script>
+<!-- end js include path -->
+
+{% comment "messages framework" %} {% endcomment %}
+{% if messages %}
+	{% for message in messages %}
+		<script>
+      $.toast({
+        heading: '',
+        text: '{{ message }}',
+        position: 'top-right',
+        loaderBg: '#f8e9de',
+        icon: '{{ message.tags }}',
+        hideAfter: 5400,
+        stack: 6
+      });
+		</script>
+	{% endfor %}
+{% endif %}
+
+<!-- Js content -->
+{% block extra_js %}{% endblock extra_js %}
+<!-- /js content -->
+</body>
+
+</html>

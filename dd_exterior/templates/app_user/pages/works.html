@@ -1,0 +1,26 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Works{% endblock head_title %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Services -->
+{% include 'app_user/snippets/works.html' %}
+<!-- end Services -->
+
+{% endblock content %}
+
+{% block extra_javascript %}
+    <script>
+        Fancybox.bind('[data-fancybox="gallery"]', {
+        // Your custom options for a specific gallery
+        });
+    </script>
+{% endblock extra_javascript %}

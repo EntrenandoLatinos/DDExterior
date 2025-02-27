@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8 col-sm-10 col-12">
+      <h2>Completa tu registro</h2>
+      {% comment %}
+        <h2>Sign up as a {{ user_type }}</h2>
+      {% endcomment %}
+      <form action="" id="form_sample_2" class="form-horizontal" method="POST" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Guardar</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

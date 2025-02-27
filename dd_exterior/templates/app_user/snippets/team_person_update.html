@@ -1,0 +1,120 @@
+{% load static %}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left" style="padding-bottom: 12px;">
+            <h3>Team Person</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+	<div class="row">
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Update <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            {% comment %}
+                            <ul class="dropdown-menu" role="menu" style="margin-left: -80px;">
+                                <li>
+                                    <a class="dropdown-item" href="#">Delete Team Person</a>
+                                </li>
+                            </ul>
+                            {% endcomment %}
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                         <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{team_person_form.image}}
+                            </div>
+                        </div>
+                        
+                         <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">Name <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{team_person_form.name}}
+                            </div>
+                        </div>
+                        
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">Position <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{team_person_form.position}}
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Phone <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{team_person_form.phone}}
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Facebook profile<span
+                                    class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{ team_person_form.facebook_url }}
+                            </div>
+                        </div>
+                        
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Instagram profile<span
+                                    class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{ team_person_form.instagram_url }}
+                            </div>
+                        </div>
+                        
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Tiktok profile<span
+                                    class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{ team_person_form.tiktok_url }}
+                            </div>
+                        </div>
+                        
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="title">X profile<span
+                                    class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{ team_person_form.x_url }}
+                            </div>
+                        </div>
+                        
+                        <div class="ln_solid"></div>
+                        <div class="item form-group">
+                            <div class="col-md-6 col-sm-6 offset-md-3">
+                                <a href="{% url 'app_user:team' %}" class="btn btn-primary" type="button">Cancel</a>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

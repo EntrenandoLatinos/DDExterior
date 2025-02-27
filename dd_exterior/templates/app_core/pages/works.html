@@ -1,0 +1,35 @@
+{% extends "app_core/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Works{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Banner Works -->
+    {% include 'app_core/snippets/banner_works.html' %}
+<!-- end Banner Works -->
+
+<!-- start Gallery -->
+    {% include 'app_core/snippets/gallery.html' %}
+<!-- end Gallery -->
+
+<!-- start Service Sections -->
+{% include 'app_core/snippets/services_sections.html' %}
+<!-- end Service Sections -->
+
+{% if about.image_google %}
+    <!-- start Google Business -->
+        {% include 'app_core/snippets/google_business.html' %}
+    <!-- end Google Business -->
+{% endif %}
+
+<!-- start Partners -->
+    {% include 'app_core/snippets/partners.html' %}
+<!-- end Partners -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

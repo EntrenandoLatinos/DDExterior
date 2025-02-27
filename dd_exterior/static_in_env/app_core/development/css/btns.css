@@ -1,0 +1,405 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+:root {
+	--color-primary: #2196f3;
+	--color-secundary: black;
+	--color-hover: white;
+}
+
+.button-dev.bg-hide,
+.button-dev.bg-show:hover,
+.button-dev.bg-text,
+.button-dev.bg-text-show-bg:hover,
+.button-dev.opacity-increase,
+.button-dev.opacity-decrease,
+.button-dev.grayscale-increase,
+.button-dev.grayscale-decrease,
+button.button-blur,
+.button-dev.text-blur,
+.button-dev.bg-color,
+.button-dev.text-color,
+.button-dev.shadow-increase,
+.button-dev.shadow-float,
+.button-dev.shadow-decrease,
+.button-dev.scale-increase,
+.button-dev.scale-decrease,
+.button-dev.float-down,
+.button-dev.float-up,
+.button-dev.float-left,
+.button-dev.float-right,
+.button-dev.button-rotate,
+.button-dev.button-rotate-grow,
+.button-dev.button-rotate-shrink,
+.button-dev.skew-horizontal,
+.button-dev.skew-vertical,
+.button-dev.flip-horizontal,
+.button-dev.flip-vertical,
+.button-dev.increase-letter-space,
+.button-dev.icon-slide-left,
+.button-dev.icon-slide-right {
+	color: #fff;
+	background: var(--color-primary);
+	border-color: var(--color-primary);
+}
+.button-dev.bg-hide:hover,
+.button-dev.bg-show,
+.button-dev.bg-text-show-border:hover,
+.button-dev.radial-out,
+.button-dev.radial-in,
+.button-dev.slide-down,
+.button-dev.slide-up,
+.button-dev.slide-left,
+.button-dev.slide-right,
+.button-dev.radius-increase,
+.button-dev.radius-decrease,
+.button-dev.border-dashed-1,
+.button-dev.border-dotted-1,
+.button-dev.border-color,
+.button-dev.border-text-color,
+.button-dev.swipe-overlay,
+.button-dev.swipe-overlay-out {
+	color: var(--color-primary);
+	border-color: var(--color-primary);
+	background: transparent;
+}
+.button-dev.bg-text:hover,
+.button-dev.bg-text-show-bg,
+.button-dev.bg-text-show-border {
+	color: var(--color-primary);
+	border-color: transparent;
+	background: transparent;
+}
+.button-dev.radial-out::after,
+.button-dev.radial-in::after,
+.button-dev.slide-down::after,
+.button-dev.slide-up::after,
+.button-dev.slide-left::after,
+.button-dev.slide-right::after,
+.button-dev.swipe-overlay::after,
+.button-dev.swipe-overlay-out::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: var(--color-primary);
+	width: 150%;
+	padding-top: 150%;
+	transition: 0.25s ease;
+}
+.wrap div em,
+.button-dev.radial-out::after,
+.button-dev.radial-in::after,
+.button-dev.slide-down::after,
+.button-dev.slide-up::after,
+.button-dev.slide-left::after,
+.button-dev.slide-right::after,
+.button-dev.icon-slide-left::after,
+.button-dev.icon-slide-right::after {
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+}
+.button-dev.radial-out,
+.button-dev.radial-in,
+.button-dev.slide-down,
+.button-dev.slide-up,
+.button-dev.slide-left,
+.button-dev.slide-right,
+.button-dev.swipe-overlay,
+.button-dev.swipe-overlay-out,
+.button-dev.icon-slide-left,
+.button-dev.icon-slide-right {
+	position: relative;
+	overflow: hidden;
+}
+.button-dev.shadow-increase:hover,
+.button-dev.shadow-float:hover,
+.button-dev.shadow-decrease {
+	box-shadow: 0 5px 5px -5px rgba(33, 150, 243, 0.15),
+		0 10px 10px -5px rgba(33, 150, 243, 0.15),
+		0 15px 15px -5px rgba(33, 150, 243, 0.15),
+		0 20px 20px -5px rgba(33, 150, 243, 0.15);
+}
+.wrap {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 25px;
+	padding: 25px;
+}
+@media screen and (max-width: 1000px) {
+	.wrap {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media screen and (max-width: 800px) {
+	.wrap {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media screen and (max-width: 600px) {
+	.wrap {
+		grid-template-columns: 1fr;
+	}
+}
+.wrap div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 25px;
+	position: relative;
+	border: 1px solid rgba(33, 150, 243, 0.25);
+}
+.wrap div p {
+	margin: 15px 0 0;
+	font-family: "Ubuntu", sans-serif;
+}
+.wrap div em {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	font-style: normal;
+	font-size: 12px;
+	padding: 5px 10px;
+	background: #fff;
+	border: 1px solid rgba(33, 150, 243, 0.25);
+}
+.button-dev {
+	padding: 10px 20px;
+	border-radius: 6px;
+	border-width: 2px;
+	border-style: solid;
+	font-size: 20px;
+	font-family: "Ubuntu", sans-serif;
+	cursor: pointer;
+	transition: 0.25s ease;
+}
+.button-dev > span {
+	position: relative;
+	z-index: 1;
+}
+.button-dev.radial-out,
+.button-dev.radial-in {
+	color: #fff;
+}
+.button-dev.radial-out::after,
+.button-dev.radial-in::after {
+	border-radius: 999px;
+	top: 100%;
+}
+.button-dev.radial-out:hover,
+.button-dev.radial-in:hover {
+	color: var(--color-primary);
+}
+.button-dev.radial-out:hover:after,
+.button-dev.radial-in:hover:after {
+	top: 300%;
+}
+.button-dev.radial-in {
+	color: var(--color-primary);
+}
+.button-dev.radial-in::after {
+	top: 300%;
+}
+.button-dev.radial-in:hover {
+	color: #fff;
+}
+.button-dev.radial-in:hover:after {
+	top: 100%;
+}
+.button-dev.slide-down,
+.button-dev.slide-up,
+.button-dev.slide-left,
+.button-dev.slide-right {
+	color: #fff;
+}
+.button-dev.slide-down:hover,
+.button-dev.slide-up:hover,
+.button-dev.slide-left:hover,
+.button-dev.slide-right:hover {
+	color: var(--color-primary);
+}
+.button-dev.slide-down:hover:after,
+.button-dev.slide-up:hover:after,
+.button-dev.slide-left:hover:after,
+.button-dev.slide-right:hover:after {
+	top: 300%;
+}
+.button-dev.slide-up {
+	color: var(--color-primary);
+}
+.button-dev.slide-up::after {
+	top: 300%;
+}
+.button-dev.slide-up:hover {
+	color: #fff;
+}
+.button-dev.slide-up:hover:after {
+	top: 50%;
+}
+.button-dev.slide-left:hover:after,
+.button-dev.slide-right:hover:after {
+	left: -90%;
+	top: 50%;
+}
+.button-dev.slide-right:hover:after {
+	left: 190%;
+}
+.button-dev.radius-increase:hover {
+	border-radius: 30px;
+}
+.button-dev.radius-decrease {
+	border-radius: 30px;
+}
+.button-dev.radius-decrease:hover {
+	border-radius: 6px;
+}
+.button-dev.border-dashed-1:hover {
+	border-style: dashed;
+}
+.button-dev.border-dotted-1:hover {
+	border-style: dotted;
+}
+.button-dev.opacity-increase {
+	opacity: 0.75;
+}
+.button-dev.opacity-increase:hover {
+	opacity: 1;
+}
+.button-dev.opacity-decrease:hover {
+	opacity: 0.75;
+}
+.button-dev.grayscale-increase:hover {
+	filter: grayscale(1);
+}
+.button-dev.grayscale-decrease {
+	filter: grayscale(1);
+}
+.button-dev.grayscale-decrease:hover {
+	filter: grayscale(0);
+}
+.button-dev.button-blur:hover {
+	filter: blur(6px);
+}
+.button-dev.text-blur:hover span {
+	filter: blur(6px);
+}
+.button-dev.bg-color:hover {
+	background: var(--color-hover);
+	border-color: var(--color-hover);
+}
+.button-dev.text-color:hover {
+	color: var(--color-hover);
+}
+.button-dev.border-color:hover,
+.button-dev.border-text-color:hover {
+	border-color: var(--color-hover);
+}
+.button-dev.border-text-color:hover {
+	color: var(--color-hover);
+}
+.button-dev.shadow-decrease:hover {
+	box-shadow: none;
+}
+.button-dev.shadow-float:hover {
+	transform: translateY(-6px);
+}
+.button-dev.scale-increase:hover {
+	transform: scale(1.1);
+}
+.button-dev.scale-decrease:hover {
+	transform: scale(0.9);
+}
+.button-dev.float-down:hover {
+	transform: translateY(6px);
+}
+.button-dev.float-up:hover {
+	transform: translateY(-6px);
+}
+.button-dev.float-left:hover {
+	transform: translateX(-6px);
+}
+.button-dev.float-right:hover {
+	transform: translateX(6px);
+}
+.button-dev.button-rotate:hover {
+	transform: rotate(-6deg);
+}
+.button-dev.button-rotate-grow:hover {
+	transform: rotate(-6deg) scale(1.1);
+}
+.button-dev.button-rotate-shrink:hover {
+	transform: rotate(-6deg) scale(0.9);
+}
+.button-dev.skew-horizontal:hover {
+	transform: skewX(-6deg);
+}
+.button-dev.skew-vertical:hover {
+	transform: skewY(-6deg);
+}
+.button-dev.flip-horizontal,
+.button-dev.flip-vertical {
+	transition: 0.5s ease;
+}
+.button-dev.flip-horizontal:hover,
+.button-dev.flip-vertical:hover {
+	transform: rotateY(360deg);
+}
+.button-dev.flip-vertical:hover {
+	transform: rotateX(360deg);
+}
+.button-dev.increase-letter-space:hover {
+	letter-spacing: 5px;
+}
+.button-dev.swipe-overlay::after,
+.button-dev.swipe-overlay-out::after {
+	transform: rotate(25deg);
+	top: -100%;
+	left: -190%;
+}
+.button-dev.swipe-overlay:hover,
+.button-dev.swipe-overlay-out:hover {
+	color: #fff;
+}
+.button-dev.swipe-overlay:hover:after,
+.button-dev.swipe-overlay-out:hover:after {
+	left: -30%;
+}
+.button-dev.swipe-overlay-out::after {
+	transition: 0.5s ease;
+}
+.button-dev.swipe-overlay-out:hover {
+	color: var(--color-primary);
+}
+.button-dev.swipe-overlay-out:hover:after {
+	left: 130%;
+}
+.button-dev.icon-slide-left::after,
+.button-dev.icon-slide-right::after {
+	content: "👨‍🚀";
+	position: absolute;
+	left: -20%;
+	transition: 0.25s ease;
+}
+.button-dev.icon-slide-left span,
+.button-dev.icon-slide-right span {
+	transition: 0.25s ease;
+}
+.button-dev.icon-slide-left:hover span,
+.button-dev.icon-slide-right:hover span {
+	margin-left: 20px;
+}
+.button-dev.icon-slide-left:hover:after,
+.button-dev.icon-slide-right:hover:after {
+	left: 20px;
+}
+.button-dev.icon-slide-right::after {
+	left: 120%;
+}
+.button-dev.icon-slide-right:hover span {
+	margin-left: 0;
+	margin-right: 20px;
+}
+.button-dev.icon-slide-right:hover:after {
+	left: calc(100% - 20px);
+}

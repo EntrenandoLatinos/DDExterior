@@ -1,0 +1,17 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} FAQ{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start FAQ update -->
+    {% include 'app_user/snippets/faq_update.html' %}
+<!-- end FAQ update -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

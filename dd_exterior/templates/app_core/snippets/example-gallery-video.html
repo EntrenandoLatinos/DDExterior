@@ -1,0 +1,24 @@
+{% load static %}
+
+{% if videos %}
+<section class="position-relative padding">
+    <div class="container">
+        <div class="row">
+            {% for video in videos %}
+            <div class="col-md-6 mb-4">
+                <div class="animation-dev">
+                    <a href="{% if video.url %}{{video.url}}{% else %}javascript:void(0){% endif %}"
+                        class="shadow-video enlarge-2" data-fancybox="gallery">
+                        <img src="{% if video.image %}{{video.image.url}}{% else %}{% static 'app_core/rolix/images/1000x600.png' %}{% endif %}"
+                            alt="" style="height: 350px;">
+                        <div class="shadow-title-video">
+                            <h4>{{video.title}}</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}

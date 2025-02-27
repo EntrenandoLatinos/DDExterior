@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- Meta, title, CSS, favicons, etc. -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block head_title %}Company Name | {% endblock head_title %}</title>
+	<!-- Bootstrap -->
+	<link href="{% static '/vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link href="{% static '/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+	<!-- NProgress -->
+	<link href="{% static '/vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+	<!-- Animate.css -->
+	<link href="{% static '/vendors/animate.css/animate.min.css' %}" rel="stylesheet">
+
+	<!-- Custom Theme Style -->
+	<link href="{% static '/build/css/custom.min.css' %}" rel="stylesheet">
+	<!-- favicon -->
+    <link href="{% static 'app_core/images/favicon.png' %}" rel="icon">
+
+</head>
+
+<body class="login">
+	<div>
+	   <a class="hiddenanchor" id="signup"></a>
+	   <a class="hiddenanchor" id="signin"></a>
+
+	   <div class="login_wrapper">
+		  <div class="animate form login_form">
+			 <section class="login_content">
+			{% block content %} {% endblock content %}
+			</section>
+		  </div>
+		</div>
+	</div>
+
+{% comment "messages framework" %} {% endcomment %}
+{% if messages %}
+	{% for message in messages %}
+		<script>
+      $.toast({
+        heading: '',
+        text: '{{ message }}',
+        position: 'top-right',
+        loaderBg: '#f8e9de',
+        icon: '{{ message.tags }}',
+        hideAfter: 5400,
+        stack: 6
+      });
+		</script>
+	{% endfor %}
+{% endif %}
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{% extends "app_core/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} About{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Banner About -->
+    {% include 'app_core/snippets/banner_about.html' %}
+<!-- end Banner About -->
+
+<!-- start About Section -->
+    {% include 'app_core/snippets/about_section.html' %}
+<!-- end About Section -->
+
+<!-- start Service Sections -->
+    {% include 'app_core/snippets/services_sections.html' %}
+<!-- end Service Sections -->
+
+<!-- start Social Media -->
+    {% include 'app_core/snippets/social_media.html' %}
+<!-- end Social Media -->
+
+<!-- start Partners -->
+    {% include 'app_core/snippets/partners.html' %}
+<!-- end Partners -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

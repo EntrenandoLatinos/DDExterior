@@ -1,0 +1,17 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} SubService{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start FAQ create -->
+    {% include 'app_user/snippets/subservice_create.html' %}
+<!-- end FAQ create -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

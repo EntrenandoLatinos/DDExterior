@@ -1,0 +1,30 @@
+{% extends "account/base.html" %}
+{% load staticfiles %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block content %}
+
+<!-- page content -->
+<div class="login100-form validate-form">
+  <span class="login100-form-logo">
+    <img alt="" src="{% static 'assets/img/logo-2.png' %}">
+  </span>
+  
+  <div class="text-center">
+    <h1>{% trans "Verify Your E-mail Address" %}</h1>
+    <br>
+    <p class="text-white">{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+  </div>
+  <br>
+  <div class="container-login100-form-btn">
+    <button class="login100-form-btn" onClick="location.href='/'">
+      Regresar
+    </button>
+  </div>
+</div>
+    
+
+{% endblock %}

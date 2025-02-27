@@ -1,0 +1,59 @@
+{% load static %}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left" style="padding-bottom: 12px;">
+            <h3> Partners <small></small> </h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>List <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <a href="{% url 'app_user:partner_create' %}" type="button" class="btn btn-info" style="color: white;">Add Partner</a>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table id="partnerTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 70%;">Image</th>
+                                <th style="width: 30%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for partner in partners %}
+                            <tr>
+                                <td>
+                                {% if partner.image  %}
+                                    <img style="width: 12%; display: block;" src="{{ partner.image.url }}" alt="image" />
+                                {% else %}
+                                    <img style="width: 12%; display: block;" src="{% static 'app_core/construction/images/logo-1.png' %}" alt="image">
+                                {% endif %}
+                                </td>
+                                <td>
+                                    <a class="btn btn-success" href="{% url 'app_user:partner_update' partner.id %}">Update</a>
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deletePartner{{ forloop.counter }}">Delete</button>
+                                </td>
+                            </tr>
+                            <!-- start FAQ's delete modal -->
+                                {% include 'app_user/snippets/partner_delete_modal.html' %}
+                            <!-- end FAQ's -->
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th style="width: 70%;">Image</th>
+                                <th style="width: 30%;">Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

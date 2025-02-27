@@ -1,0 +1,29 @@
+{% extends "app_core/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Privacy{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Banner Privacy -->
+    {% include 'app_core/snippets/banner_privacy.html' %}
+<!-- end Banner Privacy -->
+
+<!-- start Privacy -->
+    {% include 'app_core/snippets/privacy_section.html' %}
+<!-- end Privacy -->
+
+<!-- start Social Media -->
+    {% include 'app_core/snippets/social_media.html' %}
+<!-- end Social Media -->
+
+<!-- start Partners -->
+    {% include 'app_core/snippets/partners.html' %}
+<!-- end Partners -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

@@ -1,0 +1,33 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block content %}
+
+<div class="row">
+   <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+         <div class="x_title">
+            <h2>{% trans "Sign Out" %} <small></small></h2>
+            <div class="clearfix"></div>
+         </div>
+         <div class="x_content">
+            <br />
+            <p>{% trans 'Are you sure you want to sign out?' %}</p>
+            <form method="POST" action="{% url 'account_logout' %}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+               {% csrf_token %}
+               {% if redirect_field_value %}
+               <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+               {% endif %}
+               <button class='btn btn-primary mr-2' type="submit">{% trans 'Sign Out' %}</button>
+               <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-secondary">Cancelar</a>
+
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endblock %}

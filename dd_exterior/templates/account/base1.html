@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block head_title %}Company Name | {% endblock head_title %}</title>
+    <link href="{% static 'app_core/images/favicon.png' %}" rel="icon">
+    <link rel="stylesheet" href="{% static 'app_core/vendor/css/bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/vendor/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/vendor/css/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/vendor/css/cubeportfolio.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/vendor/css/tooltipster.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/vendor/css/revolution-settings.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/construction/css/revolution/navigation.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/construction/css/style.css' %}">
+    <style>
+        #sign-in {
+            width: 100%;
+            height: 100vh; /* Esto establecerá la altura al 100% del viewport height */
+            box-sizing: border-box; /* Esto asegura que el padding y el borde no afecten las dimensiones totales */
+        }
+    </style>
+    {% block extra_styles %} {% endblock extra_styles %}
+</head>
+<body>
+<!--PreLoader-->
+<div class="loader">
+    <div class="loader-spinner"></div>
+</div>
+<!--PreLoader Ends-->
+
+<!-- sign-in -->
+<section id="sign-in" class="bglight position-relative padding">
+    <div class="container">
+        <div class="row">
+            
+            {% block content %} {% endblock content %}
+
+        </div>
+    </div>
+</section>
+<!-- sign-in ends -->
+
+{% comment "messages framework" %} {% endcomment %}
+{% if messages %}
+	{% for message in messages %}
+		<script>
+      $.toast({
+        heading: '',
+        text: '{{ message }}',
+        position: 'top-right',
+        loaderBg: '#f8e9de',
+        icon: '{{ message.tags }}',
+        hideAfter: 5400,
+        stack: 6
+      });
+		</script>
+	{% endfor %}
+{% endif %}
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{% static 'app_core/vendor/js/bundle.min.js' %}"></script>
+<!--to view items on reach-->
+<script src="{% static 'app_core/vendor/js/jquery.appear.js' %}"></script>
+<!--Owl Slider-->
+<script src="{% static 'app_core/vendor/js/owl.carousel.min.js' %}"></script>
+<!--Parallax Background-->
+<script src="{% static 'app_core/vendor/js/parallaxie.min.js' %}"></script>
+<!--Cubefolio Gallery-->
+<script src="{% static 'app_core/vendor/js/jquery.cubeportfolio.min.js' %}"></script>
+<!--Fancybox js-->
+<script src="{% static 'app_core/vendor/js/jquery.fancybox.min.js' %}"></script>
+<!--wow js-->
+<script src="{% static 'app_core/vendor/js/wow.min.js' %}"></script>
+<!--number counters-->
+<script src="{% static 'app_core/vendor/js/jquery-countTo.js' %}"></script>
+<!--tooltip js-->
+<script src="{% static 'app_core/vendor/js/tooltipster.min.js' %}"></script>
+<!--Revolution SLider-->
+<script src="{% static 'app_core/vendor/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'app_core/vendor/js/jquery.themepunch.revolution.min.js' %}"></script>
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->
+<script src="{% static 'app_core/vendor/js/extensions/revolution.extension.actions.min.js' %}"></script>
+<script src="{% static 'app_core/vendor/js/extensions/revolution.extension.carousel.min.js' %}"></script>
+<script src="{% static 'app_core/vendor/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+<script src="{% static 'app_core/vendor/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+<script src="{% static 'app_core/vendor/js/extensions/revolution.extension.migration.min.js' %}"></script>
+<script src="{% static 'app_core/vendor/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+<script src="{% static 'app_core/vendor/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+<script src="{% static 'app_core/vendor/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+<script src="{% static 'app_core/vendor/js/extensions/revolution.extension.video.min.js' %}"></script>
+<!--custom functions and script-->
+<script src="{% static 'app_core/construction/js/functions.js' %}"></script>
+{% block extra_javascript %} {% endblock extra_javascript %}
+</body>
+</html>

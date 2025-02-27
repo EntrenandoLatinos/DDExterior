@@ -1,0 +1,69 @@
+{% load static %}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left" style="padding-bottom: 12px;">
+            <h3> Schedule <small></small> </h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>List <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <a href="{% url 'app_user:schedule_create' %}" type="button" class="btn btn-info" style="color: white;">Add Schedule</a>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table id="socialMediaTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Days</th>
+                                <th style="width: 20%;">Open</th>
+                                <th style="width: 20%;">Close</th>
+                                <th style="width: 10%;">Full Time</th>
+                                <th style="width: 10%;">activate</th>
+                                <th style="width: 20%;">action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for schedule in schedules %}
+                            <tr>
+                                <td>{{schedule.get_days_display}}</td>
+                                <td>{{ schedule.open_time }}</td>
+                                <td>{{ schedule.close_time }}</td>
+                                {% comment %} <td>{{ schedule.full_time }}</td> {% endcomment %}
+                                <td><input type="checkbox" {% if schedule.full_time %}checked{% endif %} disabled></td>
+                                <td><input type="checkbox" {% if schedule.activate %}checked{% endif %} disabled></td>
+                                
+                                <td>
+                                    <a class="btn btn-success" href="{% url 'app_user:schedule_update' schedule.id %}">Update</a>
+                                    {% comment %} <a class="btn btn-success" href="{% url 'app_user:schedule' %}">Update</a> {% endcomment %}
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteSchedule{{ forloop.counter }}">Delete</button>
+                                </td>
+                            </tr>
+                            <!-- start FAQ's delete modal -->
+                                {% include 'app_user/snippets/schedule_delete_modal.html' %}
+                            <!-- end FAQ's -->
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Days</th>
+                                <th>Open</th>
+                                <th>Close</th>
+                                <th>Full Time</th>
+                                <th>activate</th>
+                                <th>action</th>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

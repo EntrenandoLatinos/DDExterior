@@ -1,0 +1,17 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Privacy{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Banner Update -->
+    {% include 'app_user/snippets/privacy_update.html' %}
+<!-- end Banner Update -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

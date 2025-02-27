@@ -1,0 +1,15 @@
+
+
+<!--
+usar esta opcion para mostrar por defecto en no abreviado
+-->
+ {% for schedule in schedules %}
+    {{ schedule.get_days_display }}:
+    {% if schedule.full_time %}
+        24 hours
+    {% else %}
+        {{ schedule.open_time }} - {{ schedule.close_time }}
+    {% endif %}   
+    {% if not forloop.last %}<br>
+    {% endif %}
+{% endfor %} 

@@ -1,0 +1,332 @@
+:root {
+    --bg-mobile-menu: #827f7b;
+    --bg-mobile-burger-btn: #FDD04A;
+    --bg-mobile-header: #000;
+    --bg-mobile-menu-button-active: #000;
+    --bg-decorator-for-active-mobile-menu-button: #FDD04A;
+    --color-text-menu: #fff;
+}
+
+#mobile_menu {
+    background: var(--bg-mobile-menu);
+    position: relative;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 100vh;
+}
+
+#mobile_menu #mobileBodyContent {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    overflow: hidden;
+    visibility: visible;
+    transition: all 0.3s ease-in;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+#mobile_menu #mobile_header {
+    height: 60px;
+    background: var(--bg-mobile-header);
+}
+
+#mobile_menu #burgerBtn {
+    border-top: 2px solid var(--bg-mobile-burger-btn);
+    height: 25px;
+    width: 30px;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 30;
+    left: 20px;
+    top: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+#mobile_menu #burgerBtn:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    left: 0;
+    background: var(--bg-mobile-burger-btn);
+    top: 10px;
+    transition: all 0.3s ease-in;
+}
+
+#mobile_menu #burgerBtn:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    left: 0;
+    background: var(--bg-mobile-burger-btn);
+    bottom: 0;
+    transition: all 0.3s ease-in;
+}
+
+#mobile_menu #menu_list {
+    position: absolute;
+    z-index: 0;
+    list-style-type: none;
+    margin: 45px 0 0 45px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#mobile_menu #menu_list img {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+#mobile_menu #menu_list li {
+    height: 48px;
+    width: 200px;
+    margin: 0;
+    transition: all 0.3s ease-in;
+    margin-left: 0;
+    color: black;
+    border-radius: 10px;
+    display: flex;
+    position: relative;
+    background: linear-gradient(to right, var(--bg-mobile-menu-button-active) 49.5%, var(--bg-mobile-menu) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    margin: .5px 0;
+}
+
+#mobile_menu #menu_list li {
+    margin-left: -20px;
+}
+
+#mobile_menu #menu_list li+li {
+    margin-left: -40px;
+}
+
+#mobile_menu #menu_list li+li+li {
+    margin-left: -80px;
+}
+
+#mobile_menu #menu_list li+li+li+li {
+    margin-left: -120px;
+}
+
+#mobile_menu #menu_list li.item-active {
+    background: linear-gradient(to right, var(--bg-mobile-menu-button-active) 49.5%, var(--bg-mobile-menu) 50%) !important;
+    background-size: 200% 100% !important;
+    border-radius: 5px;
+}
+
+#mobile_menu #menu_list li.item-active::before {
+    content: '';
+    height: 100%;
+    width: 5px;
+    background-color: var(--bg-decorator-for-active-mobile-menu-button);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+#mobile_menu #menu_list li p {
+    pointer-events: none;
+    cursor: not-allowed;
+    margin: auto 15px;
+    color: var(--color-text-menu);
+    font-size: 1rem !important;
+}
+
+#mobile_menu.open-menu #menu_list li {
+    margin-left: 0;
+}
+
+#mobile_menu.open-menu #burgerBtn {
+    border-color: transparent;
+}
+
+#mobile_menu.open-menu #burgerBtn:before {
+    transform: rotate(45deg);
+    width: 33px;
+    left: -2px;
+}
+
+#mobile_menu.open-menu #burgerBtn:after {
+    transform: rotate(135deg);
+    bottom: 11px;
+    width: 33px;
+    left: -2px;
+}
+
+#mobile_menu.open-menu #mobileBodyContent {
+    border-radius: 20px;
+}
+
+#mobile_menu.open-menu #mobileBodyContent>* {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+#mobile_menu.transition-1.open-menu #mobileBodyContent {
+    height: calc(100vh - 60px);
+    transform: scale(0.85);
+    margin-left: 260px;
+}
+
+#mobile_menu.transition-2.open-menu #mobileBodyContent {
+    margin-left: 320px;
+    opacity: 0.4;
+}
+
+#mobile_menu.transition-3.open-menu #mobileBodyContent {
+    opacity: 0;
+    transform: scale(0.85);
+    visibility: hidden;
+}
+
+/************************************** Modal Moile ***************************************/
+
+.container-modal-mobile .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    transition: all 0.6s ease-in-out;
+    z-index: 30;
+
+    /* initially it will be hidden */
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container-modal-mobile .modal-content-mobile {
+    background: #f6f8f9;
+    width: 100%;
+    position: absolute;
+    z-index: 30;
+    border-radius: 20px 20px 0 0;
+    transition: all 0.6s ease-in-out;
+    margin: 0;
+    padding: 1rem;
+    padding-bottom: 80px;
+    padding-right: .5rem;
+
+    /* centering an absolute div */
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* initially it will be pushed down out of the view */
+    bottom: -110%;
+}
+
+.container-modal-mobile.show-modal .backdrop {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.container-modal-mobile.show-modal .modal-content-mobile {
+    bottom: 0;
+}
+
+.close-modal {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+    right: 10px;
+    top: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.close-modal span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--bg-mobile-burger-btn);
+    transform: rotate(45deg);
+    position: relative;
+    top: 6px;
+}
+
+.close-modal span::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--bg-mobile-burger-btn);
+    transform: rotate(90deg);
+}
+
+.container-modal-mobile h2 {
+    font-size: 20px !important;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    padding-right: .5rem;
+}
+
+.container-modal-mobile .button-group-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: .5rem;
+    column-gap: .5rem;
+    grid-row-gap: .5rem;
+    row-gap: .5rem;
+    max-height: 260px;
+    overflow-y: scroll;
+    padding-right: .5rem;
+}
+
+.container-modal-mobile .button-group-container .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    height: 100%;
+    padding: 20px 0;
+    border-radius: .313rem;
+    border: 0;
+    width: 100%;
+    /* min-height: 100px; */
+    text-decoration: none;
+}
+
+.container-modal-mobile .button-group-container .button-container.active {
+    border: 2px solid var(--bg-mobile-menu-button-active);
+}
+
+.container-modal-mobile .button-group-container .button-container .icon-btn {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 5px;
+}
+
+.container-modal-mobile .button-group-container .button-container>* {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.container-modal-mobile .button-group-container p {
+    color: #000;
+    text-transform: capitalize;
+    font-size: 1rem;
+    margin: 0;
+}
+

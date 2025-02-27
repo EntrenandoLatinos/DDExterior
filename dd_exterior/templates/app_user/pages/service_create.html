@@ -1,0 +1,17 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Services{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Services -->
+    {% include 'app_user/snippets/service_create.html' %}
+<!-- end Services -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

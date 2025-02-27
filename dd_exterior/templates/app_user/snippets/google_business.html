@@ -1,0 +1,56 @@
+{% load static %}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left" style="padding-bottom: 12px;">
+            <h3> Google Business Reviews <small></small> </h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>List <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <a href="{% url 'app_user:google_business_create' %}" type="button" class="btn btn-info" style="color: white;">Add Google Business Review</a>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table id="faqTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 40%;">Name</th>
+                                <th style="width: 40%;">Description</th>
+                                <th style="width: 20%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for review in testimonials %}
+                            <tr>
+                                <td>{{review.name}}</td>
+                                <td>{{review.description|truncatechars_html:45|safe}}</td>
+                                <td>
+                                    <a class="btn btn-success" href="{% url 'app_user:google_business_update' review.id %}">Update</a>
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteReview{{ forloop.counter }}">Delete</button>
+                                </td>
+                            </tr>
+                            <!-- start FAQ's delete modal -->
+                                {% include 'app_user/snippets/google_business_delete_modal.html' %}
+                            <!-- end FAQ's -->
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

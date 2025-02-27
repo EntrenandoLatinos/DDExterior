@@ -1,0 +1,23 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Galeria{% endblock head_title %}
+
+{% block extra_styles %}
+    <style>
+        .icono-grande {
+            font-size: 3em;
+        }
+    </style>
+{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Galeria (Images - Videos) -->
+    {% include 'app_user/snippets/galeria_index.html' %}
+<!-- end Galeria (Images - Videos) -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

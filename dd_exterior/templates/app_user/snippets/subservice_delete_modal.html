@@ -1,0 +1,25 @@
+<!-- Modal -->
+<div class="modal fade" id="deleteSubservice{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="deleteSubserviceCenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete Subservice</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="post">
+                {% csrf_token %}
+                <p style="font-size: 18px;">Are you sure you want to delete this Subservice? This action cannot be undone, and all information associated with this testimonial will be permanently removed.</p>
+                <input type="hidden" value="{{ subservice.id }}" name="deleteSubserviceInput">
+                <hr>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit"  name="delete_testimonial" class="btn btn-danger">Delete</button>
+                
+            </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>

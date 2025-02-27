@@ -1,0 +1,142 @@
+{% load static %}
+<!-- 
+
+    Este snippet de ejemlo observaremos la implementación de 4 funcionalidades:
+
+        * Menu easy: Este tiene dos comportamientos
+                - data-work = "true" -> cuando se requiere una navegación tipo scroll. 
+                - data-work = "false" -> Cuando se requiere una navegación por ruta. 
+                En este caso, esta habilitado la navegación tipo scroll   
+
+        * Share: Este Permite compartir la información de cualquier servicio a whatsapp o facebook.
+
+        * Send email: Permite abrir el correo predeterminado del dispositivo y precarga algo
+                      de información para enviar mensaje al destinatario ya configurado.
+        
+        * Open image gallery: Permite abrir las imagenes en una galeria a pantalla completa,
+                              esta funcionalidad implementa la libreria o cdn fancybox.
+
+-->
+
+<!------------------------------   Menu easy -------------------------------
+
+    Las clases, id o dataset que corresponden al funcionamiento del menu-easy son las siguientes:
+
+        * grupo 1: 
+            - clase:    easy-navigation
+            - id:       services{{forloop.counter}}
+
+        * grupo 2:
+            - clase:
+                + sidebar-easy-navigation
+                + item-easy-navigation
+            - dataset:
+                + data-work          -> boolean   
+                + data-offset-scroll -> numerico
+                + data-id            -> string
+                + data-url           -> string   
+-->
+
+<!------------------------------   Share -------------------------------
+
+    El id, las clases y dataset que corresponden al funcionamiento share o compartir,
+    son las siguientes:
+
+        - clase: share-buttons
+        - id:    services{{forloop.counter}}
+        - dataset:
+            + data-title
+            + data-description
+            + data-phone
+            + data-email
+            + data-class
+            + data-id
+-->
+
+<!------------------------------   send email -------------------------------
+
+    El id, las clases y dataset que corresponden al funcionamiento share o compartir,
+    son las siguientes:
+
+        - clase: send-email
+        - dataset:
+            + data-company
+            + data-title
+            + data-description
+            + data-email
+-->
+
+<!------------------------------   send email -------------------------------
+
+    El id, las clases y dataset que corresponden al funcionamiento Open image gallery,
+    son las siguientes:
+
+        - clase: 
+            + animation-dev
+            + shadow-image
+            + enlarge-2
+        - dataset:
+            + data-fancybox
+-->
+
+
+<div class="container py-5">
+    <div class="row container-easy-navigation">
+        <div class="col-xl-9 col-lg-8 col-md-12">
+            <div class="mb-4">
+                <div class="easy-navigation animation-dev" id="services{{forloop.counter}}">
+                    <a href="{% if servicio.image %}{{servicio.image.url}}{% endif %}" 
+                        class="shadow-image enlarge-2" data-fancybox="gallery">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAgAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" 
+                                data-lazy-src="{% if servicio.image %}{{servicio.image.url}}{% endif %}" 
+                                class="lazy-loading" alt="Image 1">
+                    </a>
+                    <div class="loading-icon"></div>
+                </div>
+                <h2>{{servicio.title}} Service</h2>
+                <p>{{servicio.description | safe}}</p>
+                <div>
+                    <a href="#" class="send-email"
+                        data-company="{{about.company_name}}" 
+                        data-title="{{servicio.title}} Service" 
+                        data-description="{{servicio.description}}" 
+                        data-email="{{contact.email}}">
+                        Email
+                    </a>
+                    <br>
+                    <span>Share:</span>
+                    <ul style="display: inline;">
+                        <li class="share-buttons" style="display: none;">
+                            <a href="javascript:void(0)" 
+                                data-title="{{servicio.title}} Service" 
+                                data-description="{{servicio.description}}" 
+                                data-phone="{{contact.phone1}}"
+                                data-email="{{contact.email}}"
+                                data-class=""  
+                                data-id="#services{{forloop.counter}}">
+                                <i data-class="fab fa-"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-12 sidebar-easy-navigation" data-work="false">
+            <ul>
+                {% if servicios %}
+                    {% for servicio_item in servicios %}
+                        <li class="item-easy-navigation" 
+                            data-offset-scroll="130"
+                            data-id="services{{forloop.counter}}"
+                            data-url="{% url 'app_core:services_view' servicio_item.slug %}"> 
+                            <a href="javascript:void(0)" 
+                                style="pointer-events: none; cursor: not-allowed;">
+                                {{ servicio_item.title|truncatewords:1 }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,259 @@
+:root {
+    --btn-home-h: 100;
+    --btn-home-s: 60%;
+    --btn-home-l: 22%;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ccc;
+}
+
+.follo-us {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.follo-us .box-logo {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.follo-us .box-logo img {
+    max-width: 600px;
+    width: 100%;
+}
+
+.follo-us ul {
+    padding-left: 0;
+    padding: 0 50px;
+}
+
+.follo-us ul li {
+    list-style: none;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.follo-us ul li .fab,
+.follo-us ul li .fas {
+    font-size: 60px;
+    color: #262626;
+    line-height: 80px;
+    transition: .5s;
+    margin-right: 20px;
+}
+
+.follo-us ul li a {
+    position: relative;
+    display: block;
+    width: 280px;
+    height: 120px;
+    background-color: #fff;
+    text-align: center;
+    transform: perspective(100px) rotate(-30deg) skew(25deg) translate(0, 0);
+    transition: .5s;
+    box-shadow: -20px 20px 10px rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.follo-us ul li a span {
+    padding: 0;
+    margin: 0;
+    color: #262626;
+    letter-spacing: 4px;
+    transition: .5s;
+    font-weight: 500;
+}
+
+.follo-us ul li a::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    height: 100%;
+    width: 20px;
+    background: #b1b1b1;
+    transition: .5s;
+    transform: rotate(0deg) skewY(-45deg);
+}
+
+.follo-us ul li a::after {
+    content: "";
+    position: absolute;
+    top: 120px;
+    left: -11px;
+    height: 20px;
+    width: 100%;
+    background: #b1b1b1;
+    transition: .5s;
+    transform: rotate(0deg) skewX(-45deg);
+}
+
+.follo-us ul li a:hover {
+    text-decoration: none;
+}
+
+.follo-us ul li.active a,
+.enable-hover .follo-us ul li a:hover {
+    transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(20px, -20px);
+    box-shadow: -50px 50px 50px rgb(0, 0, 0, 0.5);
+}
+
+.follo-us ul li.active .fas,
+.enable-hover .follo-us ul li:hover .fas,
+.follo-us ul li.active .fab,
+.enable-hover .follo-us ul li:hover .fab {
+    color: #fff;
+}
+
+.follo-us ul li.active span,
+.enable-hover .follo-us ul li:hover span {
+    color: #fff;
+}
+
+.follo-us ul li.color-phone.active a,
+.enable-hover .follo-us ul li.color-phone:hover a {
+    background: #1a1a1a;
+}
+
+.follo-us ul li.color-phone.active a:before,
+.enable-hover .follo-us ul li.color-phone:hover a:before {
+    background: #1a1a1a;
+}
+
+.follo-us ul li.color-phone.active a:after,
+.enable-hover .follo-us ul li.color-phone:hover a:after {
+    background: #1a1a1a;
+}
+
+.follo-us ul li.color-home.active a,
+.enable-hover .follo-us ul li.color-home:hover a {
+    background: hsl(var(--btn-home-h), var(--btn-home-s), var(--btn-home-l));
+}
+
+.follo-us ul li.color-home.active a:before,
+.enable-hover .follo-us ul li.color-home:hover a:before {
+    background: hsl(var(--btn-home-h), var(--btn-home-s), calc(var(--btn-home-l) - 10%));
+}
+
+.follo-us ul li.color-home.active a:after,
+.enable-hover .follo-us ul li.color-home:hover a:after {
+    background: hsl(var(--btn-home-h), var(--btn-home-s), calc(var(--btn-home-l)  + 10%));
+
+}
+
+.follo-us ul li.color-facebook.active a,
+.enable-hover .follo-us ul li.color-facebook:hover a {
+    background: #3b5999;
+}
+
+.follo-us ul li.color-facebook.active a:before,
+.enable-hover .follo-us ul li.color-facebook:hover a:before {
+    background: #2e4a86;
+}
+
+.follo-us ul li.color-facebook.active a:after,
+.enable-hover .follo-us ul li.color-facebook:hover a:after {
+    background: #4a69ad;
+}
+
+.follo-us ul li.color-twitter.active a,
+.enable-hover .follo-us ul li.color-twitter:hover a {
+    background: #55acee;
+}
+
+.follo-us ul li.color-twitter.active a:before,
+.enable-hover .follo-us ul li.color-twitter:hover a:before {
+    background: #4184b7;
+}
+
+.follo-us ul li.color-twitter.active a:after,
+.enable-hover .follo-us ul li.color-twitter:hover a:after {
+    background: #4d9fde;
+}
+
+.follo-us ul li.color-whatsapp.active a,
+.enable-hover .follo-us ul li.color-whatsapp:hover a {
+    background: #25D366;
+}
+
+.follo-us ul li.color-whatsapp.active a:before,
+.enable-hover .follo-us ul li.color-whatsapp:hover a:before {
+    background: #1eb155;
+}
+
+.follo-us ul li.color-whatsapp.active a:after,
+.enable-hover .follo-us ul li.color-whatsapp:hover a:after {
+    background: #25D366;
+}
+
+.follo-us ul li.color-youtube.active a,
+.enable-hover .follo-us ul li.color-youtube:hover a {
+    background: #FF0000;
+}
+
+.follo-us ul li.color-youtube.active a:before,
+.enable-hover .follo-us ul li.color-youtube:hover a:before {
+    background: #db0101;
+}
+
+.follo-us ul li.color-youtube.active a:after,
+.enable-hover .follo-us ul li.color-youtube:hover a:after {
+    background: #ff2b2b;
+}
+
+.follo-us ul li.color-linkedin.active a,
+.enable-hover .follo-us ul li.color-linkedin:hover a {
+    background: #0077B5;
+}
+
+.follo-us ul li.color-linkedin.active a:before,
+.enable-hover .follo-us ul li.color-linkedin:hover a:before {
+    background: #036aa0;
+}
+
+.follo-us ul li.color-linkedin.active a:after,
+.enable-hover .follo-us ul li.color-linkedin:hover a:after {
+    background: #0d82bf;
+}
+
+.follo-us ul li.color-instagram.active a,
+.enable-hover .follo-us ul li.color-instagram:hover a {
+    background: linear-gradient(#400080, transparent), linear-gradient(200deg, #d047d1, #ff0000, #ffff00);
+}
+
+.follo-us ul li.color-instagram.active a:before,
+.enable-hover .follo-us ul li.color-instagram:hover a:before {
+    background: linear-gradient(#400080, transparent), linear-gradient(200deg, #d047d1, #ff0000, #ffff00);
+}
+
+.follo-us ul li.color-instagram.active a:after,
+.enable-hover .follo-us ul li.color-instagram:hover a:after {
+    background: linear-gradient(#400080, transparent), linear-gradient(200deg, #d047d1, #ff0000, #ffff00);
+}
+
+.follo-us ul li.color-tiktok.active a,
+.enable-hover .follo-us ul li.color-tiktok:hover a {
+    background: linear-gradient(#00f2ea, transparent), linear-gradient(200deg, #ff0050, #ff0050);
+}
+
+.follo-us ul li.color-tiktok.active a:before,
+.enable-hover .follo-us ul li.color-tiktok:hover a:before {
+    background: linear-gradient(#00f2ea, transparent), linear-gradient(200deg, #ff0050, #ff0050);
+}
+
+.follo-us ul li.color-tiktok.active a:after,
+.enable-hover .follo-us ul li.color-tiktok:hover a:after {
+    background: linear-gradient(#00f2ea, transparent), linear-gradient(200deg, #ff0050, #ff0050);
+}

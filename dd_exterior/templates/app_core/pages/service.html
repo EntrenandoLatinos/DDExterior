@@ -1,0 +1,29 @@
+{% extends "app_core/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Service{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Banner About -->
+    {% include 'app_core/snippets/banner_service.html' %}
+<!-- end Banner About -->
+
+<!-- start Service Detail -->
+    {% include 'app_core/snippets/services_detail.html' %}
+<!-- end Service Detail -->
+
+<!-- start Social Media -->
+    {% include 'app_core/snippets/social_media.html' %}
+<!-- end Social Media -->
+
+<!-- start Partners -->
+    {% include 'app_core/snippets/partners.html' %}
+<!-- end Partners -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

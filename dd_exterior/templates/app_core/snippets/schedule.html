@@ -1,0 +1,21 @@
+
+<!--
+usar esta opcion cuando se quiere tener la opcion de cambiar la opcion ver la manera abreviada o no desde el administrador
+-->
+{% for schedule in schedules %}
+    {% if schedule.short_mode %}
+        {{ schedule.get_days_short }}:
+    {% else %}
+        {{ schedule.get_days_display }}:
+    {% endif %}
+
+    {% if schedule.full_time %}
+        24 hours
+    {% else %}
+        {{ schedule.open_time }} - {{ schedule.close_time }}
+    {% endif %}   
+    {% if not forloop.last %}<br>
+    {% endif %}
+{% endfor %} 
+
+

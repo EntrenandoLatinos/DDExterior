@@ -1,0 +1,220 @@
+{% extends "app_core/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Contact{% endblock head_title %}
+
+{% block extra_styles %}
+<!-- ==============================================
+Open Street Map
+=============================================== -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-easybutton/src/easy-button.css" />
+<style>
+    #map {
+        width: 100%;
+        height: 450px;
+    }
+</style>
+{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Banner Contact -->
+    {% include 'app_core/snippets/banner_contact.html' %}
+<!-- end Banner Contact -->
+
+<!-- start Contact Section -->
+    {% include 'app_core/snippets/contact_section.html' %}
+<!-- end Contact Section -->
+
+<!-- start Testimonios -->
+    {% include 'app_core/snippets/testimonials.html' %}
+<!-- end Testimonios -->
+
+{% if about.image_google %}
+    <!-- start Google Business -->
+        {% include 'app_core/snippets/google_business.html' %}
+    <!-- end Google Business -->
+{% endif %}
+
+<!-- start Partners -->
+    {% include 'app_core/snippets/partners.html' %}
+<!-- end Partners -->
+
+{% endblock content %}
+
+{% block extra_javascript %}
+<!-- ==============================================
+Open Street Map
+=============================================== -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+<script src="https://unpkg.com/leaflet-easybutton/src/easy-button.js"></script>
+
+<script>
+    // coordinates
+    var latitude = "{{contact.latitude}}";
+    var longitude = "{{contact.longitude}}";
+
+    // Define la ubicación del marcador
+    var markerLocation = [latitude,longitude];
+
+    // Define la URL de la imagen personalizada
+    var imageUrl = '{% static "app_core/images/marker_map.webp" %}';
+
+    // Crea un icono personalizado con la imagen
+    var customIcon = L.icon({
+        iconUrl: imageUrl,
+        iconSize: [100, 100], // Tamaño de la imagen en píxeles
+        iconAnchor: [50, 100], // Punto de anclaje del icono (la parte inferior del icono en este caso)
+    });
+
+    var map = L.map('map', {
+        scrollWheelZoom: false,
+        attributionControl: false
+    }).setView(markerLocation, 15); // Definimos el centro y el nivel de zoom inicial
+
+    // Agregamos el mapa de OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Crea el marcador con el icono personalizado
+    var marker = L.marker(markerLocation, { icon: customIcon }).addTo(map);
+
+    // Añadimos un control de capas (opcional)
+    var baseLayers = {
+        "Satélite": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+        }),
+        "Mapa de Calle": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        })
+    };
+
+    // Añadimos el control de capas al mapa
+    L.control.layers(baseLayers).addTo(map);
+
+    // Agregamos el control de ubicación con un icono personalizado
+    L.control.locate({
+        icon: 'fa fa-crosshairs'
+    }).addTo(map);
+    
+    // Creamos un botón personalizado para redirigir al marcador
+    var goToMarkerButton = L.easyButton('fa-location-arrow', function(btn, map){
+        map.setView(marker.getLatLng(), 15); // Centra el mapa en la ubicación del marcador con un zoom de 17
+    });
+    goToMarkerButton.addTo(map);
+    // Crear un botón personalizado
+    var googleMapsButton = L.easyButton('fa-map', function(btn, map){
+        // Obtener las coordenadas del marcador
+        var lat = marker.getLatLng().lat;
+        var lng = marker.getLatLng().lng;
+        
+        // Abrir Google Maps en un nuevo tab del navegador
+        window.open('https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lng, '_blank');
+    });
+
+    // Agregar el botón al mapa
+    googleMapsButton.addTo(map);
+</script>
+<script>
+    document.getElementById("reload_captcha").addEventListener("click", function() {
+        var captchaImage = document.getElementById("captcha_image");
+        captchaImage.src = "{% url 'app_core:captcha_image' %}?rand=" + Math.random();
+    });
+</script>
+
+<script>
+    // Capturamos el csrftoken del template de Django
+    const csrftoken = '{{ csrf_token }}';
+
+    // Configuramos la solicitud AJAX con el csrftoken capturado
+    const form = document.querySelector('#formContact');
+    form.addEventListener('submit', function(e) {
+        // Prevenir el envío del formulario por defecto
+        e.preventDefault();
+
+        // Obtener los datos del formulario
+        const formData = new FormData(form);
+        
+        // Construir un objeto con los datos a enviar
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        // Realizar la solicitud AJAX utilizando fetch
+        fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken
+            },
+            body: JSON.stringify(data) // Convertir los datos a formato JSON
+        })
+        .then(response => {
+            // Verificar si la solicitud fue exitosa
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Convertir la respuesta a JSON
+        })
+        .then(data => {
+            // Manejar la respuesta en JSON
+            console.log(data);
+            var mensaje = data.mensaje;
+            var resultado = data.resultado;
+            // Hacer algo con los campos
+            if (resultado) {
+                new PNotify({
+                    title: 'Success',
+                    text: mensaje,
+                    type: 'success',
+                    styling: 'brighttheme'
+                });
+                // Obtener referencia a los campos del formulario
+                var userNameField = document.querySelector('input[name="userName"]');
+                var userEmailField = document.querySelector('input[name="userEmail"]');
+                var userPhoneField = document.querySelector('input[name="userPhone"]');
+                var userSubjectField = document.querySelector('input[name="userSubject"]');
+                var userMessageField = document.querySelector('textarea[name="userMessage"]');
+                var userCaptchaField = document.querySelector('input[name="captcha"]');
+
+                // Limpiar los campos estableciendo su valor a una cadena vacía
+                userNameField.value = '';
+                userEmailField.value = '';
+                userPhoneField.value = '';
+                userSubjectField.value = '';
+                userMessageField.value = '';
+                userCaptchaField.value = '';
+                var captchaButton = document.getElementById('reload_captcha');
+                var submitContactButton = document.getElementById('is_submit_contact_form');
+                captchaButton.click();
+                submitContactButton.blur();
+            }else{
+                new PNotify({
+                    title: 'Error',
+                    text: mensaje,
+                    type: 'error',
+                    styling: 'brighttheme'
+                });
+            }
+
+        })
+        .catch((error) => {
+            // Capturar y manejar errores de la solicitud
+            console.error('Error:', error);
+            new PNotify({
+                title: 'Error',
+                text: 'Error en la coincidencia del captcha',
+                type: 'error',
+                styling: 'brighttheme'
+            });
+        });
+    });
+
+</script>
+{% endblock extra_javascript %}

@@ -1,0 +1,242 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <!-- Meta, title, CSS, favicons, etc. -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <link rel="icon" type="image/png" sizes="50x50" href="{% static 'app_core/images/favicon.png' %}">
+   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'app_core/images/apple-icon-180x180.png' %}">
+   <link rel="icon" type="image/png" sizes="192x192" href="{% static 'app_core/images/android-icon-192x192.png' %}">
+
+   <title>{% block head_title %}{{company_data.company_name}} | {% endblock head_title %}</title>
+
+   <!-- Bootstrap -->
+   <link href="{% static 'app_user/vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+   <!-- Font Awesome -->
+   <link href="{% static 'app_user/vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+   <!-- NProgress -->
+   <link href="{% static 'app_user/vendors/nprogress/nprogress.css' %}" rel="stylesheet">
+   <!-- iCheck -->
+   <link href="{% static 'app_user/vendors/iCheck/skins/flat/green.css' %}" rel="stylesheet">
+
+   <!-- bootstrap-progressbar -->
+   <link href="{% static 'app_user/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css' %}"
+      rel="stylesheet">
+   <!-- JQVMap -->
+   <link href="{% static 'app_user/vendors/jqvmap/dist/jqvmap.min.css' %}" rel="stylesheet" />
+   <!-- bootstrap-daterangepicker -->
+   <link href="{% static 'app_user/vendors/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+
+   <!-- Custom Theme Style -->
+   <link href="{% static 'app_user/build/css/custom.min.css' %}" rel="stylesheet">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap" rel="stylesheet">
+   <!-- PNotify -->
+   <link href="{% static 'app_user/vendors/pnotify/dist/pnotify.css' %}" rel="stylesheet">
+   <link href="{% static 'app_user/vendors/pnotify/dist/pnotify.buttons.css' %}" rel="stylesheet">
+   <link href="{% static 'app_user/vendors/pnotify/dist/pnotify.nonblock.css' %}" rel="stylesheet">
+   <link href="{% static 'app_user/vendors/pnotify/dist/pnotify.brighttheme.css' %}" rel="stylesheet">
+   <style>
+      /* los siguientes estilos es cuando el menu lateral está abierto */
+      #seccion-menu-lateral .navbar.nav_title {
+         height: auto;
+      }
+
+      #seccion-menu-lateral .site_title {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         height: inherit;
+         text-align: center;
+         padding: 20px 5px 0;
+      }
+
+      #seccion-menu-lateral .site_title span {
+         font-size: 1rem;
+      }
+
+      #seccion-menu-lateral .site_title .sevillana-regular {
+         font-family: "Sevillana", cursive;
+         font-weight: 400;
+         font-size: 4rem !important;
+         font-style: normal;
+         position: relative;
+         top: -4px;
+      }
+
+      #seccion-menu-lateral .site_title .icono-letter {
+         width: 100px;
+         height: 100px;
+         padding: 24px 10px 0 5px;
+         background-color: black;
+         border-radius: 50%;
+         border: 2px solid white;
+      }
+
+      #seccion-menu-lateral .site_title .name-company {
+         line-height: 1.3;
+         margin-top: 1rem;
+      }
+
+      /* los siguientes estilos es cuando el menu lateral está cerrado */
+
+      .nav-sm #seccion-menu-lateral .navbar.nav_title {
+         margin-top: 20px;
+      }
+
+      .nav-sm #seccion-menu-lateral .site_title {
+         text-align: left;
+         padding: 0;
+      }
+
+      .nav-sm #seccion-menu-lateral .site_title .icono-letter {
+         width: 50px;
+         height: 50px;
+         padding: 0px 0px 0px 8px;
+      }
+
+      .nav-sm #seccion-menu-lateral .site_title .icono-letter .sevillana-regular {
+         font-size: 2rem !important;
+         display: block;
+      }
+   </style>
+   {% block extra_styles %}{% endblock extra_styles %}
+</head>
+
+<body class="nav-md">
+   <div class="container body">
+      <div class="main_container">
+
+         <!-- start Menú -->
+         {% include 'app_user/snippets/menu.html' %}
+         <!-- end Menú -->
+
+         <!-- start Header -->
+         {% include 'app_user/snippets/header.html' %}
+         <!-- end Header -->
+
+         <!-- page content -->
+         <div class="right_col" role="main">
+
+            {% block content %}{% endblock content %}
+
+         </div>
+         <!-- /page content -->
+
+         <!-- start Footer -->
+         {% include 'app_user/snippets/footer.html' %}
+         <!-- end Footer -->
+
+      </div>
+   </div>
+
+   <!-- jQuery -->
+   <script src="{% static 'app_user/vendors/jquery/dist/jquery.min.js' %}"></script>
+   <!-- Bootstrap -->
+   <script src="{% static 'app_user/vendors/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+   <!-- FastClick -->
+   <script src="{% static 'app_user/vendors/fastclick/lib/fastclick.js' %}"></script>
+   <!-- NProgress -->
+   <script src="{% static 'app_user/vendors/nprogress/nprogress.js' %}"></script>
+   <!-- Chart.js -->
+   <script src="{% static 'app_user/vendors/Chart.js/dist/Chart.min.js' %}"></script>
+   <!-- gauge.js -->
+   <script src="{% static 'app_user/vendors/gauge.js/dist/gauge.min.js' %}"></script>
+   <!-- bootstrap-progressbar -->
+   <script src="{% static 'app_user/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js' %}"></script>
+   <!-- iCheck -->
+   <script src="{% static 'app_user/vendors/iCheck/icheck.min.js' %}"></script>
+   <!-- Skycons -->
+   <script src="{% static 'app_user/vendors/skycons/skycons.js' %}"></script>
+   <!-- Flot -->
+   <script src="{% static 'app_user/vendors/Flot/jquery.flot.js' %}"></script>
+   <script src="{% static 'app_user/vendors/Flot/jquery.flot.pie.js' %}"></script>
+   <script src="{% static 'app_user/vendors/Flot/jquery.flot.time.js' %}"></script>
+   <script src="{% static 'app_user/vendors/Flot/jquery.flot.stack.js' %}"></script>
+   <script src="{% static 'app_user/vendors/Flot/jquery.flot.resize.js' %}"></script>
+   <!-- Flot plugins -->
+   <script src="{% static 'app_user/vendors/flot.orderbars/js/jquery.flot.orderBars.js' %}"></script>
+   <script src="{% static 'app_user/vendors/flot-spline/js/jquery.flot.spline.min.js' %}"></script>
+   <script src="{% static 'app_user/vendors/flot.curvedlines/curvedLines.js' %}"></script>
+   <!-- DateJS -->
+   <script src="{% static 'app_user/vendors/DateJS/build/date.js' %}"></script>
+   <!-- JQVMap -->
+   <script src="{% static 'app_user/vendors/jqvmap/dist/jquery.vmap.js' %}"></script>
+   <script src="{% static 'app_user/vendors/jqvmap/dist/maps/jquery.vmap.world.js' %}"></script>
+   <script src="{% static 'app_user/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js' %}"></script>
+   <!-- bootstrap-daterangepicker -->
+   <script src="{% static 'app_user/vendors/moment/min/moment.min.js' %}"></script>
+   <script src="{% static 'app_user/vendors/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+
+   <!-- Custom Theme Scripts -->
+   <script src="{% static 'app_user/build/js/custom.min.js' %}"></script>
+   <!-- PNotify -->
+   <script src="{% static 'app_user/vendors/pnotify/dist/pnotify.js' %}"></script>
+   <script src="{% static 'app_user/vendors/pnotify/dist/pnotify.buttons.js' %}"></script>
+   <script src="{% static 'app_user/vendors/pnotify/dist/pnotify.nonblock.js' %}"></script>
+
+   <script>
+      // Este script permite verificar los archivos input tipo file y eliminar cualquier archivo no permitido
+      document.addEventListener('DOMContentLoaded', function () {
+         const fileInputs = document.querySelectorAll('input[type="file"][accept="image/*"]');
+
+         // Escuchar el evento 'change' (cuando se seleccionan archivos)
+         fileInputs.forEach(element => {
+            element.addEventListener('change', function (event) {
+               const files = event.target.files;
+               if (files.length > 0) {
+                  // Verificar los tipos de archivo
+                  let validFiles = [];
+                  let invalidFiles = [];
+
+                  Array.from(files).forEach(file => {
+                     if (file.type.startsWith('image/')) { // Comprobar si es una imagen
+                        validFiles.push(file.name);
+                     } else {
+                        invalidFiles.push(file.name);
+                     }
+                  });
+
+                  if (validFiles.length > 0) {
+                     console.log("Archivos válidos seleccionados: " + validFiles.join(', '));
+                  }
+
+                  if (invalidFiles.length > 0) {
+                     console.warn("Archivos no válidos seleccionados: " + invalidFiles.join(', '));
+                     element.value = ''; // Limpiar el input si hay archivos no válidos
+                  }
+               } else {
+                  element.value = ''; // Si no se seleccionaron archivos, limpiar el input
+               }
+            });
+         });
+      });
+   </script>
+
+   {% if messages %}
+      {% for message in messages %}
+         {% if message.tags == 'success' %}
+            <script>
+               new PNotify({
+                  title: 'Success',
+                  text: '{{ message }}',
+                  type: 'success',
+                  styling: 'brighttheme',
+                  delay: 18000,
+               });
+            </script>
+         {% endif %}
+      {% endfor %}
+   {% endif %}
+   {% block extra_javascript %}{% endblock extra_javascript %}
+</body>
+
+</html>

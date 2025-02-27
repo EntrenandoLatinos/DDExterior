@@ -1,0 +1,29 @@
+{% extends "app_core/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} FAQ's{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Banner FAQ's -->
+    {% include 'app_core/snippets/banner_faq.html' %}
+<!-- end Banner FAQ's -->
+
+<!-- start FAQ's -->
+    {% include 'app_core/snippets/faq_section.html' %}
+<!-- end FAQ's -->
+
+<!-- start Social Media -->
+    {% include 'app_core/snippets/social_media.html' %}
+<!-- end Social Media -->
+
+<!-- start Partners -->
+    {% include 'app_core/snippets/partners.html' %}
+<!-- end Partners -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

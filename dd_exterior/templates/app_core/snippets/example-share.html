@@ -1,0 +1,33 @@
+{% load static %}
+
+{% with name_company='Entrenando Latinos in roofing' servicio_title='Titulo del' servicio_description='Esta es la descripcion del contenido de cada servicio' contact_phone='3204990581' contact_email='johnny.entrenandolatinos@gmail.com' %}
+    {% for item in '123' %}
+        <div id="servicesHome_{{ forloop.counter }}"> 
+            <div class="share-buttons">
+                <a href="javascript:void(0)" style="display:none;" class="base-share-button"
+                    data-title="{{ servicio_title }} Service {{forloop.counter}}" 
+                    data-description="{{ servicio_description }}" 
+                    data-phone="{{ contact_phone }}"
+                    data-email="{{ contact_email }}"
+                    data-class=""  
+                    data-id="#servicesHome_{{forloop.counter}}">
+                    <i data-class="text-white fab fa-" style="font-size: 30px;"></i>
+                    <!-- inicio - Eliminar esto para implementar -->
+                        enlace <br>
+                    <!-- fin - Eliminar esto para implementar -->
+                </a>
+            </div>
+        </div>
+        <!-- inicio - Eliminar esto para implementar -->
+        <br><br>
+        <!-- fin - Eliminar esto para implementar -->
+    {% endfor %}
+
+    <a href="#" class="send-email text-black"
+        data-company="{{name_company}}" 
+        data-title="{{servicio_title}} Service" 
+        data-description="{{ servicio_description }}" 
+        data-email="{{contact_email}}">
+        Email
+    </a>
+{% endwith %}

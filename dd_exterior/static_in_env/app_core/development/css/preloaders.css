@@ -1,0 +1,204 @@
+:root {
+  --bg-1: white;
+  --bg-2: white;
+  --bg-3: #1F2428;
+}
+
+#pre-load-dev {
+  background: var(--bg-1);
+  /* Old browsers */
+  background: -moz-linear-gradient(45deg, var(--bg-1) 8%, var(--bg-2) 100%);
+  /* FF3.6-15 */
+  background: -Winkit-linear-gradient(45deg, var(--bg-1) 8%, var(--bg-2) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, var(--bg-1) 8%, var(--bg-2) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  margin-top: 0px;
+  top: 0px;
+  z-index: 9999;
+}
+
+
+/* -------------------------------------- inicio preloader-1 -------------------------------------- */
+
+.loader-dev .loader-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border: 3px solid #ebebec;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.loader-dev .loader-container:before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border-top: 3px solid var(--bg-3);
+  border-radius: 50%;
+  animation: loaderspin 1.8s infinite ease-in-out;
+  -webkit-animation: loaderspin 1.8s infinite ease-in-out;
+}
+
+.loader-dev .loader-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  text-align: center;
+}
+
+.loader-dev .loader-icon img {
+  animation: loaderpulse alternate 900ms infinite;
+  width: 225px;
+}
+
+.woocommerce .quantity input[type="number"]::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+
+  color: #363636 !important;
+  opacity: 1;
+}
+
+.woocommerce .quantity input[type="number"]::-moz-placeholder {
+  /* Firefox 19+ */
+
+  color: #363636 !important;
+  opacity: 1;
+}
+
+.woocommerce .quantity input[type="number"]:-ms-input-placeholder {
+  /* IE 10+ */
+
+  color: #363636 !important;
+  opacity: 1;
+}
+
+.woocommerce .quantity input[type="number"]:-moz-placeholder {
+  /* Firefox 18- */
+
+  color: #363636 !important;
+  opacity: 1;
+}
+
+@keyframes loaderspin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loaderspin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes loaderpulse {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* -------------------------------------- fin preloader-1 -------------------------------------- */
+
+
+
+/* -------------------------------------- inicio preloader-2 -------------------------------------- */
+
+@keyframes characters {
+
+  0%,
+  75%,
+  100% {
+      opacity: 0;
+      transform: rotateY(-90deg);
+  }
+
+  25%,
+  50% {
+      opacity: 1;
+      transform: rotateY(0deg);
+  }
+}
+
+.preloader-2 {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: var(--white-color);
+}
+
+.th-preloader-2 {
+  align-items: center;
+  cursor: none;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.th-preloader-2 .animation-preloader {
+  position: absolute;
+  z-index: 100;
+}
+
+.th-preloader-2 .animation-preloader .txt-loading {
+  font-family: var(--title-font);
+  font-size: 72px;
+  line-height: 82px;
+  font-weight: 700;
+  text-align: center;
+  user-select: none;
+}
+
+.th-preloader-2 .animation-preloader .txt-loading .characters {
+  color: #0e1f33e5;
+  position: relative;
+}
+
+.th-preloader-2 .animation-preloader .txt-loading .characters:before {
+  animation: characters 4s infinite;
+  color: #E4A837;
+  content: attr(preloader-text);
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transform: rotateY(-90deg);
+}
+
+@media (max-width: 576px) {
+  .th-preloader-2 .animation-preloader .txt-loading {
+      font-size: 30px;
+      line-height: 30px;
+  }
+}
+
+/* -------------------------------------- fin preloader-2 -------------------------------------- */

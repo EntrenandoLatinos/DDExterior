@@ -1,0 +1,116 @@
+{% load static %}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left" style="padding-bottom: 12px;">
+            <h3>Testimonial</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+	<div class="row">
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Update <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu" style="margin-left: -80px;">
+                                <li>
+                                    <a href="javascript:;" class="dropdown-item" data-toggle="modal" data-target="#deleteTestimonial">Delete Testimonial</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                                                
+                        {% comment %}
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">Image <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{testimonial_form.image}}
+                            </div>
+                        </div>
+                        {% endcomment %}
+                        
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">Name <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{testimonial_form.name}}
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">Position <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{testimonial_form.location}}
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align">Stars <span class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{testimonial_form.stars}}
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 label-align">Description</label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{testimonial_form.description}}
+                            </div>
+                        </div>
+                        
+                        <div class="ln_solid"></div>
+                        <div class="item form-group">
+                            <div class="col-md-6 col-sm-6 offset-md-3">
+                                <a href="{% url 'app_user:testimonials' %}" class="btn btn-primary" type="button">Cancel</a>
+                                <button type="submit" name="update_testimonial" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteTestimonial" tabindex="-1" role="dialog" aria-labelledby="deleteTestimonialCenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete Testimonial</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="post">
+                {% csrf_token %}
+                <p style="font-size: 18px;">Are you sure you want to delete this testimonial? This action cannot be undone, and all information associated with this testimonial will be permanently removed.</p>
+                {{ testimonial_delete_form.id_to_delete }}
+                <hr>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit"  name="delete_testimonial" class="btn btn-primary">Save changes</button>
+                
+            </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>

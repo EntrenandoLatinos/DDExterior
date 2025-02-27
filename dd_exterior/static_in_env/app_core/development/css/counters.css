@@ -1,0 +1,73 @@
+
+/* ------------------- counters.html ------------------- */
+#section_counters_one {
+    height: 200px;
+    width: 100%;
+    padding: 0;
+    background-color: #242568;
+}
+
+#section_counters_one>.counter-list {
+    background: linear-gradient(180deg, rgba(36, 37, 104, 0.9) 35%, rgba(21, 21, 21, 0.39) 95%);
+    height: inherit;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+#section_counters_one .counter-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 20px;
+    height: inherit;
+    width: 100%;
+}
+
+#section_counters_one .counter-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+#section_counters_one .counter-item i {
+    font-size: 4rem;
+}
+
+#section_counters_one .counter-item i::before {
+    font-size: 4rem;
+    color: white;
+}
+
+#section_counters_one .counter-item .progress-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: white;
+    margin: .6rem 0;
+}
+
+#section_counters_one .counter-item h6 {
+    font-size: 3rem;
+}
+
+#section_counters_one .counter-item p {
+    font-size: 1.2rem;
+    color: white !important;
+}
+
+@media (orientation: landscape) {
+    #section_counters_one  .counter-list {
+        grid-template-columns: repeat(4, 1fr) !important;
+        grid-template-rows: 1fr !important;
+    }
+}
+
+@media (orientation: portrait) {
+    #section_counters_one .counter-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(2, 1fr) !important;
+    }
+}

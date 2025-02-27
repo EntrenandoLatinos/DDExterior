@@ -1,0 +1,77 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{{ block.super }}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<form class="login100-form validate-form" method="POST" action="{% url 'account_login' %}">
+	{% csrf_token %}
+
+	<span class="login100-form-title">
+		<img alt="" src="{% static 'app_core/assets/img/logo/logo_login.webp' %}" width="180 px" height="180 px">
+	</span>
+
+	<span class="login100-form-title p-b-34 p-t-27">
+		{% trans "Sign In" %}
+	</span>
+
+	<div class="wrap-input100 validate-input" data-validate="Ingrese un email válido">
+		<input class="input100" type="text" name="login" placeholder="Email o usuario" required>
+		<span class="focus-input100" data-placeholder="&#xf207;"></span>
+	</div>
+
+	<div class="wrap-input100 validate-input" data-validate="Ingrese su contraseña">
+		<input class="input100" type="password" name="password" placeholder="Password" required>
+		<span class="focus-input100" data-placeholder="&#xf191;"></span>
+	</div>
+
+	{% if form.errors %}
+	{% for field in form %}
+	{% for error in field.errors %}
+	<div class="alert alert-danger">
+		<strong>{{ error|escape }}</strong>
+	</div>
+	{% endfor %}
+	{% endfor %}
+	{% for error in form.non_field_errors %}
+	<div class="alert alert-danger">
+		<strong>{{ error|escape }}</strong>
+	</div>
+	{% endfor %}
+	{% endif %}
+
+	{% if redirect_field_value %}
+	<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+	{% endif %}
+
+	<div class="contact100-form-checkbox pb-3">
+		<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+		<label class="label-checkbox100" for="ckb1">
+			{% trans "Remember Me" %}
+		</label>
+	</div>
+
+	<div class="container-login100-form-btn pt-0">
+		<button class="login100-form-btn">
+			{% trans "Sign In" %}
+		</button>
+	</div>
+
+	<div class="text-center pt-3">
+		<a class="txt1" href="#">
+			{% trans "Forgot Password?" %}
+		</a>
+	</div>
+
+	<div class="text-center">
+		<a class="txt1" href="#">
+			<strong><u>Regresar a Inicio</u></strong>
+		</a>
+	</div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Social Media{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Social Media create -->
+    {% include 'app_user/snippets/social_media_update.html' %}
+<!-- end Social Media create -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

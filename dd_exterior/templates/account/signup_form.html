@@ -1,0 +1,409 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<div class="card card-box">
+				<div class="card-head">
+					<header>Completa tu registro</header>
+				</div>
+
+				<div class="card-body" id="bar-parent2">
+
+					<form id="form_sample_2" class="form-horizontal" method="POST" enctype="multipart/form-data" novalidate>
+						{% csrf_token %}
+						<input type="hidden" name="next" value="{{ next }}">
+
+						<div class="form-body">
+
+							<div class="form-group row  margin-top-20">
+								<label class="control-label col-md-3">Nombres
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<input type="text" class="form-control" name="nombres" id="id_nombres" required/>
+										<input type="hidden" name="user" value="{{ user.id }}" required/>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row  margin-top-20">
+								<label class="control-label col-md-3">Apellidos
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<input type="text" class="form-control" name="apellidos" id="id_apellidos" required/>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Email
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<input type="email" class="form-control" name="email" id="id_email" value="{{ user.email }}"
+													 readonly="" required/>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">No. identificación
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<input type="number" class="form-control" name="cc" required/>
+
+										{% if form.cc.errors %}
+											{% for error in form.cc.errors %}
+												<div class="alert alert-danger">
+													<strong style="font-size: 14px">{{ error|escape }}</strong>
+												</div>
+											{% endfor %}
+										{% endif %}
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label for="inputDocument" class="control-label col-md-3">Documento
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<input id="inputDocument" class="" aria-describedby="documentHelpBlock" type="file"
+													 name="image_id"/>
+										<small id="documentHelpBlock" class="form-text text-muted">
+											Subir imagen de documento de identidad por ambas caras (Sólo admite formatos de imagen conocidos
+											como .jpg .png)
+										</small>
+
+										{% if form.image_id.errors %}
+											{% for error in form.image_id.errors %}
+												<div class="alert alert-danger">
+													<strong style="font-size: 14px">{{ error|escape }}</strong>
+												</div>
+											{% endfor %}
+										{% endif %}
+
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Imagen de perfil
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<input type="file" class="" name="image_profile"/>
+
+										{% if form.image_profile.errors %}
+											{% for error in form.image_profile.errors %}
+												<div class="alert alert-danger mt-2">
+													<strong style="font-size: 14px">{{ error|escape }}</strong>
+												</div>
+											{% endfor %}
+										{% endif %}
+
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Género
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<select class="form-control" name="genero" required>
+											{% for x,y in form.fields.genero.choices %}
+												<option value="{{ x }}"{% if form.fields.genero.value == x %}
+																selected{% endif %}>{{ y }}</option>
+											{% endfor %}
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row my-5">
+								<label class="control-label col-md-3">Fecha de nacimiento
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-3 col-sm-3">
+
+									{% comment %}
+									<div class="input-append date form_date" data-date-format="yyyy-mm-dd" data-date="">
+										<i class="fa"></i>
+										<input size="" type="text" name="birthday" readonly>
+										<span class="add-on"><i class="fa fa-remove icon-remove"></i></span>
+										<span class="add-on"><i class="fa fa-calendar"></i></span>
+									</div>
+									{% endcomment %}
+
+									<div class="form-control-wrapper">
+										<input type="text" name="birthday" id="date" class="floating-label mdl-textfield__input"
+													 placeholder="Selecciona fecha">
+
+										{% if form.birthday.errors %}
+											{% for error in form.birthday.errors %}
+												<div class="alert alert-danger mt-2">
+													<strong style="font-size: 14px">{{ error|escape }}</strong>
+												</div>
+											{% endfor %}
+										{% endif %}
+									</div>
+
+								</div>
+							</div>
+
+							<div class="form-group row  margin-top-20">
+								<label class="control-label col-md-3">Dirección
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<input type="text" class="form-control" name="direccion" required/></div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Celular
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<input type="number" class="form-control" name="celular" required pattern="[0-9]{10}"/></div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Municipio
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<select class="form-control" name="municipio" required>
+											{% for x,y in form.fields.municipio.choices %}
+												<option value="{{ x }}"{% if form.fields.municipio.value == x %}
+																selected{% endif %}>{{ y }}</option>
+											{% endfor %}
+										</select>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Ciclo de vida
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<select class="form-control" name="ciclo_vida" required>
+											{% for x,y in form.fields.ciclo_vida.choices %}
+												<option value="{{ x }}"{% if form.fields.ciclo_vida.value == x %}
+																selected{% endif %}>{{ y }}</option>
+											{% endfor %}
+										</select>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Caracterización
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<select class="form-control" name="caracterizacion" required>
+											{% for x,y in form.fields.caracterizacion.choices %}
+												<option value="{{ x }}"{% if form.fields.caracterizacion.value == x %}
+																selected{% endif %}>{{ y }}</option>
+											{% endfor %}
+										</select>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Discapacidad
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<select class="form-control" name="discapacidad" required>
+											{% for x,y in form.fields.discapacidad.choices %}
+												<option value="{{ x }}"{% if form.fields.discapacidad.value == x %}
+																selected{% endif %}>{{ y }}</option>
+											{% endfor %}
+										</select>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Seguridad Social
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<select class="form-control" name="segurdad_social" required>
+											{% for x,y in form.fields.segurdad_social.choices %}
+												<option value="{{ x }}"{% if form.fields.segurdad_social.value == x %}
+																selected{% endif %}>{{ y }}</option>
+											{% endfor %}
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Residencia
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<select class="form-control" name="residencia" required>
+											{% for x,y in form.fields.residencia.choices %}
+												<option value="{{ x }}"{% if form.fields.residencia.value == x %}
+																selected{% endif %}>{{ y }}</option>
+											{% endfor %}
+										</select>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Estudios realizados
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<select class="form-control" name="estudios" required>
+											{% for x,y in form.fields.estudios.choices %}
+												<option value="{{ x }}"{% if form.fields.estudios.value == x %}
+																selected{% endif %}>{{ y }}</option>
+											{% endfor %}
+										</select>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Redes sociales
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<select class="form-control" name="redes" required>
+											{% for x,y in form.fields.redes.choices %}
+												<option value="{{ x }}"{% if form.fields.redes.value == x %}
+																selected{% endif %}>{{ y }}</option>
+											{% endfor %}
+										</select>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Acceso a internet
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<select class="form-control" name="acceso_internet" required>
+											{% for x,y in form.fields.acceso_internet.choices %}
+												<option value="{{ x }}"{% if form.fields.acceso_internet.value == x %}
+																selected{% endif %}>{{ y }}</option>
+											{% endfor %}
+										</select>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="form-group row  margin-top-20">
+								<label class="control-label col-md-3">Ocupación
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<input type="text" class="form-control" name="ocupacion" required/></div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Actividad que le genera ingresos
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<textarea class="form-control" name="actividad_ingresos" rows="12" placeholder=""
+															required=""></textarea>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="control-label col-md-3">Expectativas
+									<span class="required"> * </span>
+								</label>
+								<div class="col-md-6 col-sm-6">
+									<div class="input-icon right">
+										<i class="fa"></i>
+										<textarea class="form-control" name="expectativa" rows="12" placeholder="" required=""></textarea>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<div class="offset-md-3 col-md-9">
+								<button type="submit" class="btn btn-success m-r-20">Finalizar</button>
+								<button type="button" class="btn btn-default" onClick="javascript:history.go(-1);">Cancelar</button>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

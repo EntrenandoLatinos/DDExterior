@@ -1,0 +1,17 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Testimonials{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Testimonials -->
+    {% include 'app_user/snippets/testimonials.html' %}
+<!-- end Testimonials -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

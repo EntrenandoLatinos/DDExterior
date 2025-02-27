@@ -1,0 +1,59 @@
+{% load static %}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left" style="padding-bottom: 12px;">
+            <h3>Video</h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Update <small></small></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br/>
+                    <form id="demo-form3" data-parsley-validate class="form-horizontal form-label-left" method="post"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span
+                                    class="required"></span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{ video_form.image }}
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 label-align">Title</label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{ video_form.title }}
+                            </div>
+                        </div>
+
+                        <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 label-align">URL</label>
+                            <div class="col-md-6 col-sm-6 ">
+                                {{ video_form.url }}
+                            </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+                        <div class="item form-group">
+                            <div class="col-md-6 col-sm-6 offset-md-3">
+                                <button class="btn btn-primary" type="button">Cancel</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

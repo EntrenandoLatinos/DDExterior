@@ -1,0 +1,17 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Partners{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Partner create -->
+    {% include 'app_user/snippets/partner_create.html' %}
+<!-- end Partner create -->
+
+{% endblock content %}
+
+{% block extra_javascript %}{% endblock extra_javascript %}

@@ -1,0 +1,25 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Works{% endblock head_title %}
+
+{% block extra_styles %}{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start Works -->
+    {% include 'app_user/snippets/work_create.html' %}
+<!-- end Works -->
+
+{% endblock content %}
+
+{% block extra_javascript %}
+<script>
+    function bloquearBoton() {
+        var boton = document.getElementById("miBoton");
+        boton.disabled = true;
+        boton.style.opacity = 0.5;
+    }
+</script>
+{% endblock extra_javascript %}

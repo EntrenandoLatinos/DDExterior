@@ -1,0 +1,247 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block head_title %}{{ about.company_name }} | {% endblock head_title %}</title>
+    <meta name="author" content="Entrenando Latinos In Roofing">
+    <meta name="description"
+        content="Expert roofing, siding, gutter, and window services. Specializing in quality installations and repairs for homes and businesses | {{ about.company_name }}">
+    <meta name="keywords"
+        content="{% for servicio in servicios %} {{servicio.title}},{% endfor %} | {{ about.company_name }}">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/png" sizes="50x50" href="{% static 'app_core/images/favicon.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'app_core/images/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'app_core/images/android-icon-192x192.png' %}">
+
+    <script type="application/ld+json">
+        {
+           "@context": "http://schema.org",
+           "@type": "RoofingContractor",
+           "name": "{{ about.company_name }}",
+           "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "{{ contact.address }}",
+              "addressLocality": "{{ contact.city }}",
+              "addressRegion": "{{ contact.state }}",
+              "postalCode": "{{ contact.postal_code }}",
+              "addressCountry": "US"
+           },
+           "telephone": "+1 {{contact.phone1}}",
+           "url": "{{ request.build_absolute_uri }}",
+           "openingHours": "Mo-Fr 07:00-18:00",
+           "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "{{ contact.latitude }}",
+              "longitude": "{{ contact.longitude }}"
+           },
+           {% if social_media %}"sameAs": [
+              {% for social in social_media %}"{{social.url}}"{% if not forloop.last %}, {% endif %}
+              {% endfor %} ],
+           {% endif %}{% if servicios %}"makesOffer": [
+                {% for servicio in servicios %}{
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "{{ servicio.name }} Services",
+                        "description": "{{ servicio.title }}"
+                    }
+                }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ]
+           {% endif %}
+        }
+    </script>
+
+    <script>
+        var djangoData = {
+            logo: "{% static 'app_core/images/logo.png' %}",
+            currentPath: "{{ request.path }}",
+            urlName: "{{ request.resolver_match.url_name }}",
+            contact: {
+                phone1: "{{contact.phone1}}",
+                phone2: "{{contact.phone2}}",
+                email: "{{contact.email}}",
+            },
+            static_urls: {
+                index: "{% url 'app_core:index' %}",
+                about: "{% url 'app_core:about' %}",
+                works: "{% url 'app_core:works' %}",
+                faqs: "{% url 'app_core:faq' %}",
+                contact: "{% url 'app_core:contact' %}",
+                privacy: "{% url 'app_core:privacy' %}",
+                admin_index: "{% url 'app_user:admin_index' %}"
+            },
+            dynamic_urls: [
+                {% for servicio in servicios %}{
+                    name: "{{ servicio.name }}",
+                    slug: "{{ servicio.slug }}",
+                    icon: "{% static 'app_core/development/images/icons/' %}{{ servicio.icon_mobile|lower }}.png"
+                }{% if not forloop.last %},
+        {% endif %} {% endfor %}
+            ]
+        };
+    </script>
+
+    <script type="text/javascript" src="{% static 'app_core/development/js/is-mobile.js' %}"></script>
+
+    <!-------------------------------------------------init dev ---------------------------------------------------->
+
+    <!-- PNotify -->
+    <link href="{% static 'app_user/vendors/pnotify/dist/pnotify.css' %}" rel="stylesheet">
+    <link href="{% static 'app_user/vendors/pnotify/dist/pnotify.buttons.css' %}" rel="stylesheet">
+    <link href="{% static 'app_user/vendors/pnotify/dist/pnotify.nonblock.css' %}" rel="stylesheet">
+    <link href="{% static 'app_user/vendors/pnotify/dist/pnotify.brighttheme.css' %}" rel="stylesheet">
+
+    <!-- Whatsapp -->
+    <link href="{% static 'app_core/development/css_whatsapp/whatsapp.css' %}" rel="stylesheet">
+    <link href="{% static 'app_core/development/css_whatsapp/line-awesome.css' %}" rel="stylesheet">
+
+    <!-- development -->
+    <link rel="stylesheet" href="{% static 'app_core/development/css/lazy-loading.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/development/css/counters.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/development/css/modals.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/development/css/animation.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/development/css/preloaders.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/development/css/btns-fixed.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/development/css/easy-navigation.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/development/css/banner-home.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/development/css/social-media.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/development/css/responsive-default.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/development/css/menu.css' %}" media="all">
+
+    <!-- Incluye el archivo CSS de Fancybox -- permite abrir un galeria de imagenes-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+    <!-------------------------------------------------finsh dev ---------------------------------------------------->
+
+
+    <!-------------------------------------------------inicio prueba ---------------------------------------------------->
+
+    <!--  
+        Esta seccion no se debe agregar en los pryectos, se utiliza en la base para veriicar funcionalidad de
+        bootstrap
+     -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-------------------------------------------------fin prueba ---------------------------------------------------->
+
+    {% block extra_styles %}{% endblock extra_styles %}
+</head>
+
+<body>
+    {% comment %}
+        {% include 'app_core/snippets/preloader-1.html' %}
+        {% include 'app_core/snippets/preloader-2.html' %}
+    {% endcomment %}
+
+    {% comment %} {% include 'app_core/snippets/group-btn-fixed-2.html' %} {% endcomment %}
+
+    <!-- inicio ----------- Implementación menu version mobile -->
+    <div id="header_desktop">
+        {% include 'app_core/snippets/header.html' %}
+    </div>
+
+    <div id="content_snippets">
+        {% block content %}{% endblock content %}
+        {% include 'app_core/snippets/footer.html' %}
+    </div>
+
+    <div id="mobile-container-reference"></div>
+    <!-- fin ----------- Implementación menu version mobile -->
+
+    {% comment %}
+
+        {% include 'app_core/snippets/banner-home-1.html' %}
+
+        <a href="{% url 'app_user:admin_index' %}" target="_blank">Login</a>
+
+        {% include 'app_core/snippets/example-easy-navigation-true.html' %}
+
+        {% include 'app_core/snippets/social-media-2.html' %}
+        {% include 'app_core/snippets/schedule.html' %}<br>
+        {% include 'app_core/snippets/schedule-short.html' %}<br>
+
+        {% include 'app_core/snippets/schedule-long.html' %}<br>
+
+        {% include 'app_core/snippets/footer.html' %}
+
+    {% endcomment %}
+
+    {% comment %}
+        <!-- TODO -->
+        <!-- <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register("{% static 'app_core/development/js/sw.js' %}")
+                    .then(function (registration) {
+                        console.log('Service Worker registrado con éxito con el alcance:', registration.scope);
+                    }).catch(function (error) {
+                        console.log('Service Worker falló:', error);
+                    });
+            }
+        </script> -->
+    {% endcomment %}
+
+    <!-- PNotify -->
+    <script src="{% static 'app_user/vendors/pnotify/dist/pnotify.js' %}"></script>
+    <script src="{% static 'app_user/vendors/pnotify/dist/pnotify.buttons.js' %}"></script>
+    <script src="{% static 'app_user/vendors/pnotify/dist/pnotify.nonblock.js' %}"></script>
+
+    <!-- development -->
+    <script type="text/javascript" src="{% static 'app_core/development/js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/whatsapp.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/scroll-top.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/counters.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/observer-viewport.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/modals.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/preloaders.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/btns-fixed.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/easy-navigation.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/share-on-media.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/send-email.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/banner-home.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/select-header-item.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/format-contact-phone.js' %}"></script>
+    <script type="text/javascript" src="{% static 'app_core/development/js/lazy-loading.js' %}"></script>
+
+
+    <!-- Incluye los archivos JavaScript de Fancybox -- permite abrir un galeria de imagenes -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+    <script>
+        Fancybox.bind("[data-fancybox]", {
+            caption: function (instance, slide) {
+                return slide.caption;
+            },
+            slideShow: {
+                autoStart: true,
+                speed: 3000
+            },
+            fullScreen: {
+                autoStart: false
+            },
+            thumbs: {
+                autoStart: true,
+                hideOnClose: true
+            }
+        });
+    </script>
+
+    <script>
+        const email = '{{contact.email}}';
+        let elementEmail = document.querySelectorAll(`a[href="mailto:${email}"]`);
+        elementEmail.forEach(element => {
+            element.style.wordBreak = 'break-word';
+        });
+    </script>
+
+    {% block extra_javascript %}{% endblock extra_javascript %}
+</body>
+
+</html>

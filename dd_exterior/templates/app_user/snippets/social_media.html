@@ -1,0 +1,56 @@
+{% load static %}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left" style="padding-bottom: 12px;">
+            <h3> Social Media <small></small> </h3>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>List <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <a href="{% url 'app_user:social_media_create' %}" type="button" class="btn btn-info" style="color: white;">Add Social Media</a>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table id="socialMediaTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 40%;">Name</th>
+                                <th style="width: 40%;">Url</th>
+                                <th style="width: 20%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for social in social_media %}
+                            <tr>
+                                <td>{{social.get_name_display}}</td>
+                                <td><a href="{{social.url}}" target="_blank">{{social.url}}</a></td>
+                                <td>
+                                    <a class="btn btn-success" href="{% url 'app_user:social_media_update' social.id %}">Update</a>
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteSocialMedia{{ forloop.counter }}">Delete</button>
+                                </td>
+                            </tr>
+                            <!-- start FAQ's delete modal -->
+                                {% include 'app_user/snippets/social_media_delete_modal.html' %}
+                            <!-- end FAQ's -->
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>Url</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

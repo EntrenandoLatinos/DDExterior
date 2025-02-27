@@ -1,0 +1,227 @@
+/* -------------------------------------- inicio default -------------------------------------- */
+:root {
+  --cantidad-btns: 1;
+}
+
+.group-btn-fixed {
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(63px * var(--cantidad-btns));
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.6));
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.group-btn-fixed.active {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .group-btn-fixed {
+    height: calc(53px * var(--cantidad-btns));
+  }
+}
+
+/* -------------------------------------- fin default -------------------------------------- */
+
+
+
+/* -------------------------------------- inicio group-btn-fixed-1 -------------------------------------- */
+
+:root {
+  --default-color-btns: black;
+  --default-color-borde: #FAC521;
+  --default-color-icono: #FAC521;
+}
+
+.group-btn-fixed .btn-fixed-1 {
+  border-radius: 100%;
+  background-color: var(--default-color-btns);
+  box-shadow: -4px 4px 24px -10px black !important;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+
+.group-btn-fixed .btn-fixed-1::after {
+  content: '';
+  width: 56px;
+  height: 56px;
+  border: 2px dashed var(--default-color-borde);
+  background: transparent;
+  border-radius: 50%;
+  bottom: 40px;
+  right: 3px;
+  position: relative;
+  display: block;
+  transition: all 0.5s;
+}
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.group-btn-fixed .btn-fixed-1:hover::after {
+  -webkit-animation: spinAround 9s linear infinite;
+  -moz-animation: spinAround 9s linear infinite;
+  animation: spinAround 9s linear infinite;
+}
+
+.group-btn-fixed .btn-fixed-1 svg {
+  margin-top: 12px;
+  fill: var(--default-color-icono);
+  width: 50%;
+  height: 50%;
+}
+
+@media (max-width: 767px) {
+
+  .group-btn-fixed .btn-fixed-1 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .group-btn-fixed .btn-fixed-1::after {
+    width: 50px;
+    height: 50px;
+    bottom: 35px;
+    right: 5.4px;
+  }
+
+  .group-btn-fixed .btn-fixed-1 svg {
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
+
+}
+
+/* --------------------------------------- fin group-btn-fixed-1 ---------------------------------------- */
+
+
+
+/* -------------------------------------- inicio group-btn-fixed-2 -------------------------------------- */
+
+.group-btn-fixed .btn-fixed-2 {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  display: block;
+  border-radius: 50px;
+  z-index: 10000;
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+/* .group-btn-fixed .btn-fixed-2 {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  display: block;
+  border-radius: 50px;
+  z-index: 10000;
+  opacity: 1;
+  visibility: hidden;
+  -webkit-transform: translateY(45px);
+  -ms-transform: translateY(45px);
+  transform: translateY(45px);
+  -webkit-transition: all 300ms linear;
+  transition: all 300ms linear;
+} */
+
+.group-btn-fixed .btn-fixed-2.scrolltop svg:nth-of-type(2) {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  height: 50%;
+  width: 50%;
+  fill: var(--default-color-icono);
+}
+
+.group-btn-fixed .btn-fixed-2 svg:nth-of-type(1) {
+  border-radius: 50%;
+  background: var(--default-color-btns);
+}
+
+.group-btn-fixed .btn-fixed-2 svg:nth-of-type(1) path {
+  fill: none;
+  stroke: var(--default-color-icono);
+  stroke-width: 20px;
+  box-sizing: border-box;
+  -webkit-transition: all 400ms linear;
+  transition: all 400ms linear;
+}
+
+.group-btn-fixed .btn-fixed-2::after {
+  content: '';
+  width: 56px;
+  height: 56px;
+  border: 2px dashed var(--default-color-borde);
+  background: transparent;
+  border-radius: 50%;
+  bottom: 53px;
+  right: 3px;
+  position: relative;
+  display: block;
+  transition: all 0.5s;
+}
+
+/* .group-btn-fixed .btn-fixed-2.show {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+} */
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.group-btn-fixed .btn-fixed-2:hover::after {
+  -webkit-animation: spinAround 9s linear infinite;
+  -moz-animation: spinAround 9s linear infinite;
+  animation: spinAround 9s linear infinite;
+}
+
+@media (max-width: 767px) {
+
+  .group-btn-fixed .btn-fixed-2 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .group-btn-fixed .btn-fixed-2::after {
+    width: 50px;
+    height: 50px;
+    bottom: 45px;
+    right: 5.4px;
+  }
+
+  .group-btn-fixed .btn-fixed-2.scrolltop svg:nth-of-type(2) {
+    left: 10px;
+    top: 10px;
+  }
+
+}
+
+/* --------------------------------------- fin group-btn-fixed-2 ---------------------------------------- */

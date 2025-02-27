@@ -1,0 +1,38 @@
+{% load static %}
+
+<div id="socialMediaDev">
+    <div class="container text-center">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-6 mb-3">
+                <img class="img-logo lazy-loading" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAgAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                    data-lazy-src="{% static 'app_core/images/logo-social.webp' %}"
+                    alt="Company Logo | {{ about.company_name }}" />
+            </div>
+            <div class="col-lg-6 mb-3">
+                {% if social_media %}
+                    <div class="portfolio__one-content-left">
+                        <h2>Follow our social media channels and discover the latest in
+                            construction.</h2>
+                    </div>
+                    <div class="mt-5">
+                        <span class="sub-title"><i class="fas fa-thumbs-up"></i> Follow us</span>
+                        <div class="footer__three-top-social d-flex justify-content-center mt-3">
+                            {% for social in social_media %}
+                                <a href="{{social.url}}" target="blank"><i class="fab fa-{{social|lower}}"></i></a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="title-area text-center mb-35">
+                        <h2 class="sec-title text-white">Free inspections available with every service we provide.</h2>
+                    </div>
+                    <div class="btn-group justify-content-center">
+                        <a href="tel:{{contact.phone1}}" class="btn-two">Contact us now!
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

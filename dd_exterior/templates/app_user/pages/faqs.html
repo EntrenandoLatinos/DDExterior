@@ -1,0 +1,35 @@
+{% extends "app_user/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Faq's{% endblock head_title %}
+
+{% block extra_styles %}
+<!-- DataTables -->
+<link href="{% static 'app_user/vendors/DataTables/datatables.min.css' %}" rel="stylesheet">
+{% endblock extra_styles %}
+
+{% block content %}
+
+<!-- start FAQ's -->
+    {% include 'app_user/snippets/faqs.html' %}
+<!-- end FAQ's -->
+
+{% endblock content %}
+
+{% block extra_javascript %}
+<!-- DataTables -->
+<script src="{% static 'app_user/vendors/DataTables/datatables.min.js' %}"></script>
+
+<script>
+    $("#faqTable").DataTable({
+        dom: "lBfrtip",
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ],
+        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Todos"]],
+        pageLength: 10,
+        responsive: true,
+    });
+</script>
+{% endblock extra_javascript %}

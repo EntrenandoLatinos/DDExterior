@@ -1,0 +1,85 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{{ block.super }}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<form class="login100-form validate-form" method="POST" action="{% url 'account_login' %}">
+   {% csrf_token %}
+   <h1>AppBioquimica</h1>
+   <span class="container-login100-form-btn">
+      <a href="/" style="padding-bottom: 20px;"><img alt="" src="{% static 'images/logo_login2.webp' %}"></a>
+   </span>
+   <!-- <div style="background-image: url('{% static "images/prod-1.jpg" %}');"></div> -->
+
+   <div class="wrap-input100 validate-input" data-validate="Ingrese un email o un usuario válido" style="padding-top: 20px;">
+      <input class="form-control" type="text" name="login" placeholder="Email o usuario" required>
+      <span class="focus-input100" data-placeholder="&#xf207;"></span>
+   </div>
+
+   <div class="wrap-input100 validate-input" data-validate="Ingrese su contraseña">
+      <input class="form-control" type="password" name="password" placeholder="Password" required>
+      <span class="focus-input100" data-placeholder="&#xf191;"></span>
+   </div>
+
+   {% if form.errors %}
+      {% for field in form %}
+         {% for error in field.errors %}
+            <div class="alert alert-danger">
+               <strong>{{ error|escape }}</strong>
+            </div>
+         {% endfor %}
+      {% endfor %}
+      {% for error in form.non_field_errors %}
+         <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+         </div>
+      {% endfor %}
+   {% endif %}
+
+   {% if redirect_field_value %}
+   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+   {% endif %}
+
+   <div class="contact100-form-checkbox" style="padding-bottom: 15px;">
+      <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+      <label class="label-checkbox100" for="ckb1">
+         {% trans "Remember Me" %}
+      </label>
+   </div>
+
+   <div class="container-login100-form-btn" style="padding-bottom: 15px;">
+      <button class="login100-form-btn">
+         {% trans "Sign In" %}
+      </button>
+   </div>
+
+   <div class="text-center">
+      <a class="txt1" href="#">
+         {% trans "Forgot Password?" %}
+      </a>
+   </div>
+   <br>
+
+   <div class="clearfix"></div>
+
+   <div class="separator">
+
+      <div class="clearfix"></div>
+      <br />
+
+      <div>
+         <h1><img src="{% static 'images/unillanos.webp' %}" alt=""> Universidad de los Llanos</h1>
+         <p>© <script>document.write(new Date().getFullYear())</script> Todos los derechos reservados.</p>
+         <p>Facultad de Biología</p>
+      </div>
+   </div>
+
+  
+
+</form>
+
+{% endblock %}

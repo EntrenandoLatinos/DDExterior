@@ -1,0 +1,199 @@
+/* En este Aparto encontrará las clases que pemit */
+.animation-dev .enlarge-1,
+.animation-dev .enlarge-2,
+.animation-dev .enlarge-3,
+.animation-dev .enlarge-4,
+.animation-dev .enlarge-5,
+.animation-dev .enlarge-6,
+.animation-dev .enlarge-7,
+.animation-dev .reduce,
+.animation-dev .shadow-image::before,
+.animation-dev .shadow-image::after,
+.animation-dev .shadow-video::before,
+.animation-dev .shadow-video::after,
+.animation-dev .shadow-title-video,
+.animation-dev .color-text-1 {
+    -webkit-transition: 1.2s cubic-bezier(.17, .85, .438, .99);
+    -o-transition: 1.2s cubic-bezier(.17, .85, .438, .99);
+    transition: 1.2s cubic-bezier(.17, .85, .438, .99);
+}
+
+.animation-dev a.enlarge-1,
+.animation-dev a.enlarge-2,
+.animation-dev a.enlarge-3,
+.animation-dev a.enlarge-4,
+.animation-dev a.enlarge-5,
+.animation-dev a.enlarge-6,
+.animation-dev a.enlarge-7,
+.animation-dev a.reduce {
+    display: inline-block;
+}
+
+.animation-dev .enlarge-1,
+.animation-dev .enlarge-2,
+.animation-dev .enlarge-3,
+.animation-dev .enlarge-4,
+.animation-dev .enlarge-5,
+.animation-dev .enlarge-6,
+.animation-dev .enlarge-7,
+.animation-dev .reduce,
+.animation-dev .color-text-1 {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+.animation-dev .shadow-video,
+.animation-dev .shadow-image {
+    width: 100%;
+    height: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+}
+
+.animation-dev .shadow-title-video {
+    z-index: 3;
+    color: white;
+    bottom: 0;
+    background-color: #002E5B;
+    width: 10%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animation-dev .shadow-video::before,
+.animation-dev .shadow-image::before {
+    content: '';
+    width: 10%;
+    height: inherit;
+    position: absolute;
+    opacity: 1;
+    background-color: transparent;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.animation-dev .shadow-title-video> :first-child {
+    white-space: nowrap;
+    margin: 0;
+}
+
+.animation-dev .shadow-title-video,
+.animation-dev .shadow-video::after,
+.animation-dev .shadow-image::after {
+    content: '';
+    position: absolute;
+    opacity: 0;
+}
+
+/* ---------------  comportamiento hover ------------------- */
+
+.animation-dev:hover .enlarge-1 {
+    -webkit-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01);
+}
+
+.animation-dev:hover .enlarge-2 {
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.05);
+    transform: scale(1.03);
+}
+
+.animation-dev:hover .enlarge-3 {
+    -webkit-transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    transform: scale(1.06);
+}
+
+.animation-dev:hover .enlarge-4 {
+    -webkit-transform: scale(1.09);
+    -ms-transform: scale(1.09);
+    transform: scale(1.09);
+}
+
+.animation-dev:hover .enlarge-5 {
+    -webkit-transform: scale(1.12);
+    -ms-transform: scale(1.12);
+    transform: scale(1.12);
+}
+
+.animation-dev:hover .enlarge-6 {
+    -webkit-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    transform: scale(1.15);
+}
+
+.animation-dev:hover .enlarge-7 {
+    -webkit-transform: scale(1.18);
+    -ms-transform: scale(1.18);
+    transform: scale(1.18);
+}
+
+.animation-dev:hover .reduce {
+    -webkit-transform: scale(.9);
+    -ms-transform: scale(.9);
+    transform: scale(.9);
+}
+
+.animation-dev:hover .color-text-1 {
+    color: #FCB311 !important;
+}
+
+.animation-dev:hover .shadow-video::before,
+.animation-dev:hover .shadow-image::before {
+    opacity: 0.39;
+    background-color: black;
+    width: 100%;
+    z-index: 1;
+}
+
+.animation-dev:hover .shadow-video::after,
+.animation-dev:hover .shadow-image::after {
+    background-image: url(../images/icon-images.png);
+    background-size: cover;
+    width: 50px;
+    height: 44px;
+    opacity: 1;
+    z-index: 2;
+}
+
+.animation-dev:hover .shadow-title-video {
+    opacity: 1;
+    width: 100%;
+}
+
+.animation-dev:hover .shadow-video::after {
+    width: 66px;
+    height: 58px;
+    background-image: url(../images/youtube-brands-solid.svg);
+}
+
+/*  Las siguientes clases se utlizan para el observer-viewport 
+    En los dispositivos mobile la pseudoclase :hover no funciona 
+    En este apartado vamos a simular el efecto hover cuando un elemento
+    ingresa al viewport o pantalla del mobile, y lograr que los efectos o 
+    las animaciones se aciven.
+ */
+
+.enlarge.viewport {
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.reduce.viewport {
+    -webkit-transform: scale(.9);
+    -ms-transform: scale(.9);
+    transform: scale(.9);
+}
+
+.color-text-1.viewport {
+    color: #FCB311 !important;
+}

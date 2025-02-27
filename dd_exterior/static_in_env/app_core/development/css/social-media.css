@@ -1,0 +1,24 @@
+#socialMediaDev {
+    background-color: #000;
+    padding: 70px 0;
+    margin: 0;
+}
+
+#socialMediaDev h2 {
+    font-size: 40px;
+    line-height: 1.13;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-weight: 700;
+}
+
+#socialMediaDev .sub-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+    margin-top: -0.41em;
+    margin-bottom: 22px;
+    display: block;
+}

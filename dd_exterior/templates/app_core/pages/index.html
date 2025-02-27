@@ -1,0 +1,118 @@
+{% extends "app_core/base.html" %}
+
+{% load static %}
+
+{% block head_title %}{{ block.super }} Home{% endblock head_title %}
+
+{% block extra_styles %}
+<style>
+    @media (max-width: 575.9px) {
+        .banner-home {
+            background-image: url("{{ banner.image_mobile.url }}");
+        }
+    }
+
+    @media (min-width: 576px) and (max-width: 1299.9px) {
+        .banner-home {
+            background-image: url("{{ banner.image_desktop_2.url }}");
+        }
+    }
+
+    @media (min-width: 1300px) {
+        .banner-home {
+            background-image: url("{{ banner.image_desktop_1.url }}");
+        }
+    }
+</style>
+{% endblock extra_styles %}
+
+{% block content %}
+
+    <!-- start About Us -->
+    {% include 'app_core/snippets/banner.html' %}
+    <!-- end About Us -->
+
+    <!-- start About Us -->
+    {% include 'app_core/snippets/about.html' %}
+    <!-- end About Us -->
+
+    <!-- start Social Media -->
+    {% include 'app_core/snippets/social_media.html' %}
+    <!-- end Social Media -->
+
+    <!-- start Social Media -->
+    {% include 'app_core/snippets/call_to_action.html' %}
+    <!-- end Social Media -->
+
+    <!-- start Services -->
+    {% include 'app_core/snippets/services.html' %}
+    <!-- end Services -->
+
+    <!-- start Counters -->
+    {% include 'app_core/snippets/counters.html' %}
+    <!-- end Counters -->
+
+    <!-- start Gallery -->
+    {% include 'app_core/snippets/gallery.html' %}
+    <!-- end Gallery -->
+
+    <!-- start Testimonios -->
+    {% include 'app_core/snippets/testimonials.html' %}
+    <!-- end Testimonios -->
+
+    {% if about.image_google %}
+        <!-- start Google Business -->
+        {% include 'app_core/snippets/google_business.html' %}
+        <!-- end Google Business -->
+    {% endif %}
+
+    <!-- start Partners -->
+    {% include 'app_core/snippets/partners.html' %}
+    <!-- end Partners -->
+
+{% endblock content %}
+
+{% block extra_javascript %}
+<script>
+    function reportWindowSize() {
+        const containertxt = document.querySelector('.banner-home .container-img');
+        if (!containertxt) return;
+
+        const title = containertxt.querySelector('.name-title');
+        const description = containertxt.querySelector('.description');
+
+        if (!title || !description) return;
+
+        const updateMargin = (width, height) => {
+            if (width >= 1300) {
+                const calc = -0.000014785 * width * width + 0.0654 * width - 61.924;
+                const marginLeftValue = `${calc}%`;
+                description.style.marginLeft = title.style.marginLeft = marginLeftValue;
+            } else {
+                description.style.marginLeft = title.style.marginLeft = '';
+            }
+
+            if (isMobile()) {
+                const calc = 0.00056378 * height * height -  0.5699 * height + 128.68;
+                description.style.marginBottom = `${calc}px`;
+            } else {
+                description.style.marginBottom = '';
+            }
+        };
+
+        window.onresize = () => updateMargin(window.innerWidth, window.innerHeight);
+
+        updateMargin(window.innerWidth, window.innerHeight);
+    }
+
+    function servicesHome() {
+        let body = document.querySelector('body');
+        body.classList.add(!isMobile() ? 'active-hover' : 'deactivate-hover');
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        reportWindowSize();
+        servicesHome();
+    });
+</script>
+{% endblock extra_javascript %}

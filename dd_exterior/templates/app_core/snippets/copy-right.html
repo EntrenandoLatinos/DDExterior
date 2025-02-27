@@ -1,0 +1,13 @@
+{% load static %}
+
+
+<span class="copyright-text">
+    <p style="margin: 0;"> &copy;Copyright
+        <span id="copyrightLatino">
+            <script>document.getElementById('copyrightLatino').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+        </span> <a href="{% url 'app_core:index' %}" class="scrolltop" style="margin-left: 5px;"> {{about.company_name}}</a>
+    </p>
+    Powered by
+    <a href="https://entrenandolatinosinroofing.com/" target="_blank" class="text-capitalize" style="margin-left: 5px;"> Entrenando Latinos In
+        Roofing</a>
+</span>
