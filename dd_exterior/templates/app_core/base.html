@@ -116,7 +116,39 @@
     <link rel="stylesheet" href="{% static 'app_core/development/css/menu.css' %}" media="all">
 
     <!-- Incluye el archivo CSS de Fancybox -- permite abrir un galeria de imagenes-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css' %}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/animate/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/animate/custom-animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/fontawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/jarallax/jarallax.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/nouislider/nouislider.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/nouislider/nouislider.pips.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/odometer/odometer.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/swiper/swiper.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/roofsie-icons/style.css' %}">
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/tiny-slider/tiny-slider.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/reey-font/stylesheet.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/owl-carousel/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/owl-carousel/owl.theme.default.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/bxslider/jquery.bxslider.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/bootstrap-select/css/bootstrap-select.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/vegas/vegas.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/jquery-ui/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/vendors/timepicker/timePicker.css' %}" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="{% static 'app_core/assets/css/roofsie.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/assets/css/roofsie-responsive.css' %}" />
 
     <!-------------------------------------------------finsh dev ---------------------------------------------------->
 
@@ -127,7 +159,7 @@
         Esta seccion no se debe agregar en los pryectos, se utiliza en la base para veriicar funcionalidad de
         bootstrap
      -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' %}" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-------------------------------------------------fin prueba ---------------------------------------------------->
@@ -136,6 +168,10 @@
 </head>
 
 <body>
+    <div class="preloader">
+        <div class="preloader__image"></div>
+    </div>
+    <!-- /.preloader -->
     {% comment %}
         {% include 'app_core/snippets/preloader-1.html' %}
         {% include 'app_core/snippets/preloader-2.html' %}
@@ -144,18 +180,24 @@
     {% comment %} {% include 'app_core/snippets/group-btn-fixed-2.html' %} {% endcomment %}
 
     <!-- inicio ----------- Implementación menu version mobile -->
-    <div id="header_desktop">
-        {% include 'app_core/snippets/header.html' %}
-    </div>
+    {% comment %}
+        <div id="header_desktop">
+            
+        </div>
 
-    <div id="content_snippets">
-        {% block content %}{% endblock content %}
-        {% include 'app_core/snippets/footer.html' %}
-    </div>
+        <div id="content_snippets">
+            
+            
+        </div>
 
-    <div id="mobile-container-reference"></div>
+        <div id="mobile-container-reference"></div>
+    {% endcomment %}
     <!-- fin ----------- Implementación menu version mobile -->
-
+    
+    {% include 'app_core/snippets/header.html' %}
+    {% block content %}{% endblock content %}
+    {% include 'app_core/snippets/footer.html' %}
+    
     {% comment %}
 
         {% include 'app_core/snippets/banner-home-1.html' %}
@@ -188,6 +230,37 @@
         </script> -->
     {% endcomment %}
 
+    <script src="{% static 'app_core/assets/vendors/jquery/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/jarallax/jarallax.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/jquery-appear/jquery.appear.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/jquery-validate/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/nouislider/nouislider.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/odometer/odometer.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/swiper/swiper.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/tiny-slider/tiny-slider.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/wnumb/wNumb.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/wow/wow.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/isotope/isotope.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/countdown/countdown.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/bxslider/jquery.bxslider.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/vegas/vegas.min.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/jquery-ui/jquery-ui.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/timepicker/timePicker.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/circleType/jquery.circleType.js' %}"></script>
+    <script src="{% static 'app_core/assets/vendors/circleType/jquery.lettering.min.js' %}"></script>
+
+
+
+
+    <!-- template js -->
+    <script src="{% static 'app_core/assets/js/roofsie.js' %}"></script>    
+
     <!-- PNotify -->
     <script src="{% static 'app_user/vendors/pnotify/dist/pnotify.js' %}"></script>
     <script src="{% static 'app_user/vendors/pnotify/dist/pnotify.buttons.js' %}"></script>
@@ -212,7 +285,7 @@
 
 
     <!-- Incluye los archivos JavaScript de Fancybox -- permite abrir un galeria de imagenes -->
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js' %}"></script>
 
     <script>
         Fancybox.bind("[data-fancybox]", {

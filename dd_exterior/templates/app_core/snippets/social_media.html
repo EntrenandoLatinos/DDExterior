@@ -1,1 +1,79 @@
 {% load static %}
+
+<!--Awards Start-->
+<section class="awards">
+    <div class="container">
+        <h4 class="awards__title">Our social networks, where you can see a little bit more about us</h4>
+        <style>
+            .awards__carousel {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .awards__single {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+        
+            .awards__img span {
+                font-size: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            /* Ajustes responsive para pantallas pequeñas */
+            @media (max-width: 767px) {
+                .awards__img span {
+                    font-size: 4rem; /* Tamaño más pequeño para móviles */
+                }
+            }
+            @media (max-width: 104px) {
+                .awards__img span {
+                    font-size: 4rem; /* Tamaño más pequeño para móviles */
+                }
+            }
+        </style>
+        
+        <div class="awards__carousel owl-carousel owl-theme thm-owl__carousel" data-owl-options='{
+                    "loop": true,
+                    "autoplay": true,
+                    "margin": 30,
+                    "nav": false,
+                    "dots": false,
+                    "smartSpeed": 500,
+                    "autoplayTimeout": 10000,
+                    "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
+                    "responsive": {
+                        "0": {
+                            "items": 2
+                        },
+                        "768": {
+                            "items": 3
+                        },
+                        "992": {
+                            "items": 3
+                        },
+                        "1200": {
+                            "items": 4
+                        }
+                    }
+                }'>
+            <!--Awards Single Start-->
+            {% for social in social_media %}
+            <div class="item">
+                <div class="awards__single">            
+                    <a href="{{ social.url }}">
+                        <div class="awards__img">
+                            <span class="fab fa-{{ social|lower }}"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--Awards End-->

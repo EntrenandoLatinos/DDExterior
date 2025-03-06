@@ -1,2 +1,47 @@
 {% load static %}
 
+<!--FAQ Page Start-->
+<section class="faq-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-7">
+                <div class="faq-page__left">
+                    <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
+                        {% for faq in faqs %}
+                            <div class="accrodion">
+                                <div class="accrodion-title">
+                                    <h4>{{faq.title}}</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>{{faq.description | safe}}</p>
+                                    </div><!-- /.inner -->
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="faq-page__right">
+                    <div class="service-details__need-help">
+                        <div class="service-details__need-help-bg" style="background-image: url({% static 'app_core/asset/images/backgrounds/service-details-need-help-bg.jpg' %})">
+                        </div>
+                        <div class="service-details__need-help-icon">
+                            <span class="icon-phone-call"></span>
+                        </div>
+                        <h2 class="service-details__need-help-title">Best solution <br> to your house & <br> office roofing</h2>
+                        <div class="service-details__need-help-contact">
+                            <p>Call Anytime</p>
+                            <a href="tel:92003680903"> +92 (003) 68-090</a>
+                        </div>
+                    </div>
+                    <div class="service-details__download">
+                        <a href="contact.html" class="thm-btn service-details__btn"> <i class="fa fa-arrow-right"></i> Get a free quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--FAQ Page End-->
