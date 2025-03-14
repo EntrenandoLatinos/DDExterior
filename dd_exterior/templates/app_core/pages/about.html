@@ -9,13 +9,49 @@
 {% block content %}
 
 <!-- start Banner About -->
-    {% include 'app_core/snippets/banner_about.html' %}
+    {% include 'app_core/snippets/banner_general.html' %}
 <!-- end Banner About -->
 
 <!-- start About Section -->
     {% include 'app_core/snippets/about_section.html' %}
 <!-- end About Section -->
 
+<!-- start why_us -->
+{% include 'app_core/snippets/why_us.html' %}
+<!-- end why_us -->  
+
+                <!--Team Details Start-->
+                <section class="team-details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="team-details__left">
+                                    <div class="team-details__img">
+                                        <img src="{% static 'app_core/assets/images/team/team-details-img.jpg' %}" alt="">
+                                        <div class="team-details__big-text">Vision</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="team-details__right">
+                                    <div class="team-details__content">
+                                        <div class="section-title text-left">
+                                            <div class="section-sub-title-box">
+                                                <p class="section-sub-title">Vision</p>
+                                                <div class="section-title-shape-1">
+                                                    <img src="{% static 'app_core/images/shape.png' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2 class="section-title__title">Our Vision in D&D Exterior</h2>
+                                        <p class="team-details__text-2">{{about.mision|safe}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--Team Details End-->
 <!-- start Service Sections -->
     {% include 'app_core/snippets/services_sections.html' %}
 <!-- end Service Sections -->

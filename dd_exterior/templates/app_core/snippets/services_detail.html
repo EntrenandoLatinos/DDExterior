@@ -1,2 +1,82 @@
 {% load static %}
 
+<!--Service Details Start-->
+<section class="service-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-5">
+                <div class="service-details__left">
+                    <div class="service-details__category">
+                        <ul class="service-details__category-list list-unstyled">
+                            {% for service in servicios %}
+                            <li><a href="{% url 'app_core:services_view' service.slug %}">{{service.name}}<span class="fa fa-angle-right"></span></a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="service-details__need-help">
+                        {% comment %} <div class="service-details__need-help-bg" style="background-image: url({% static 'app_core/assets/images/backgrounds/service-details-need-help-bg.jpg' %})"> {% endcomment %}
+                        <div class="service-details__need-help-bg" style="background-color: #005685">
+                        </div>
+                        <div class="service-details__need-help-icon">
+                            <span class="icon-phone-call"></span>
+                        </div>
+                        <h2 class="service-details__need-help-title">Best solution <br> to your house & <br> office roofing</h2>
+                        <div class="service-details__need-help-contact">
+                            <p>Call Anytime</p>
+                            <a href="tel:{{contact.phone1}}">{{contact.phone1}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-7">
+                <div class="service-details__right">
+                    <div class="service-details__img">
+                        {% if servicio.image_large %}
+                        <img src="{{servicio.image_large.url}}" alt="{{servicio.title}}">
+                        {% else %}
+                        <img src="{% static 'app_core/assets/images/services/services-details-img-1.jpg' %}" alt="">
+                        {% endif %}
+                        {% comment %} <div class="service-details__icon">
+                            <span class="icon-joist"></span>
+                        </div> {% endcomment %}
+                    </div>
+                    <div class="service-details__content">
+                        <h3 class="service-details__content-title">{{servicio.title}}</h3>
+                        <p class="service-details__text-1">{{servicio.description|safe}}</p>
+                    </div>
+                </div>
+                <div class="container " style="margin-top: 80px">
+                    <div class="blog-details__right">
+                        <div class="comment-one">
+                            {% for subservicio in subservicios  %}
+                            <div class="comment-one__single">
+                                <div class="comment-one__image" style="display: flex; align-items: center; " >
+                                    {% if subservicio.image %}
+                                    <img src="{{subservicio.image.url }}" alt="{{subservicio.title}}">
+                                    {% else %}
+                                    <img src="{% static 'app_core/assets/images/blog/comment-1-1.jpg' %}" alt="">
+                                    {% endif %}
+                                </div>
+                                <div class="comment-one__content">
+                                    <h3>{{subservicio.title}}</h3>
+                                    <p>{{subservicio.description|safe}}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% comment %} <div class="comment-one__single">
+                                <div class="comment-one__image">
+                                    <img src="{% static 'app_core/assets/images/blog/comment-1-2.jpg' %}" alt="">
+                                </div>
+                                <div class="comment-one__content">
+                                    <h3>Sarah Albert</h3>
+                                    <p>Mauris non dignissim purus, ac commodo diam. Donec sit amet lacinia nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus nulla, sollicitudin at euismod.</p>
+                                </div>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Service Details End-->

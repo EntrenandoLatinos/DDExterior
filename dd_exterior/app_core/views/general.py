@@ -28,6 +28,7 @@ def index(request):
     partners = Partner.objects.all().order_by('?')
     social_media = SocialMedia.objects.all()
     lunes_domingo = Schedule.objects.filter(days='04', activate=True).first()
+    service_name = Service.objects.all().order_by('?').first()
     if lunes_domingo:
         schedules = [lunes_domingo]
     else:
@@ -44,7 +45,8 @@ def index(request):
         'testimonials': testimonials,
         'partners': partners,
         'social_media': social_media,
-        'schedules': schedules
+        'schedules': schedules,
+        'service_name': service_name
     }
 
     if request.method == 'POST':

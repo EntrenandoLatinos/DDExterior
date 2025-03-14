@@ -1,2 +1,145 @@
 {% load static %}
 
+<header class="main-header clearfix">
+    <div class="main-header__logo">
+        <a href="{% url 'app_core:index' %}" class="scrolltop"><img src="{% static 'app_core/images/logo_borde.png' %}" alt=""></a>
+    </div>
+    <div class="main-header__top">
+        <div class="main-header__top-inner">
+            <div class="main-header__top-address">
+                <ul class="list-unstyled main-header__top-address-list">
+                    <li>
+                        <i class="icon">
+                            <span class="fa fa-clock"></span>
+                        </i>
+                        <div class="text" style="color: white;">
+                            {% include "app_core/snippets/schedule-short.html" %}
+                        </div>
+                    </li>
+                    <li>
+                        <i class="icon">
+                            <span class="fa fa-envelope"></span>
+                        </i>
+                        <div class="text" >
+                            <p><a href="mailto:{{contact.email}}" style="color: white;">{{contact.email}}</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-header__top-right">
+                <div class="main-header__top-social-box">
+                    <div class="main-header__top-social">
+                        {% for social in social_media %}
+                        <a href="{{social.url}}" target="blank"><i class="fab fa-{{social|lower}}"></i></a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="main-menu clearfix">
+        <div class="main-menu__wrapper clearfix">
+            <div class="main-menu__wrapper-inner clearfix">
+                <div class="main-menu__left">
+                    <div class="main-menu__main-menu-box">
+                        <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                        <ul class="main-menu__list">
+                            <li>
+                                <a href="{% url 'app_core:index' %} " class="scrolltop">Home </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'app_core:about' %}" class="scrolltop">About</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="scrolltop">Services</a>
+                                
+                                    <ul class="border-top-2px">
+                                        {% for service in servicios %}
+                                        <li><a href="{% url 'app_core:services_view' service.slug %}" class="scrolltop">{{service.name}}</a></li>
+                                        {% endfor %} 
+                                    </ul>
+                                
+                            </li>
+                            <li>
+                                <a href="{% url 'app_core:works' %}" class="scrolltop">Gallery</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'app_core:faq' %}" class="scrolltop">Faq's</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'app_core:contact' %}" class="scrolltop">Contact</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'app_core:privacy' %}" class="scrolltop">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="main-menu__right">
+                    <div class="main-menu__call">
+                        <div class="main-menu__call-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="main-menu__call-content">
+                            <p>Call Anytime</p>
+                            <a href="tel:{{contact.phone1}}">{{contact.phone1}}</a>
+                        </div>
+                        <div class="main-menu__btn-box">
+                            <a href="{% url 'app_user:admin_index' %}" target="_blank" class="thm-btn main-menu__btn"> <i class="fas fa-user"></i></a>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="{% url 'app_core:index' %}" class="scrolltop" aria-label="logo image"><img src="assets/images/resources/logo-3.png" width="143"
+                        alt="" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:{{contact.email}}">{{contact.email}}</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:{{contact.phone1}}">{{contact.phone1}}</a>
+                    {% if contact.phone2 %}
+                    <a href="tel:{{contact.phone2}}">{{contact.phone2}}</a>
+                    {% endif %}
+                </li>
+                {% if contact.phone2 %}
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:{{contact.phone2}}">{{contact.phone2}}</a>
+                </li>
+                {% endif %}
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    {% for social in social_media %}
+                    <a href="{{social.url}}" target="_blank" class="fab fa-{{social|lower}}"></a>
+                    {% endfor %}
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+
+
+
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+</header>
+
+<div class="stricky-header stricked-menu main-menu">
+    <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+</div><!-- /.stricky-header -->

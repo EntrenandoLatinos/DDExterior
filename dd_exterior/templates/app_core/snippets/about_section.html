@@ -1,2 +1,108 @@
 {% load static %}
 
+<!--About Three Start-->
+<section class="about-three about-four">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="about-three__left">
+                    <div class="about-three__img-box wow slideInLeft" data-wow-delay="100ms"
+                    data-wow-duration="2500ms">
+                        <div class="about-three__img">
+                            {% if about.image_1 %}
+                            <img src="{{about.image_1.url}}" alt="about D&D Exterior">
+                            {% else %}
+                            <img src="{% static 'app_core/assets/images/resources/about-three-img-1.jpg' %}" alt="">
+                            {% endif %}
+                        </div>
+                        <div class="about-three__img-two">
+                            {% if about.image_2 %}
+                            <img src="{{about.image_2.url}}" alt="about D&D Exterior">
+                            {% else %}
+                            <img src="{% static 'app_core/assets/images/resources/about-three-img-2.jpg' %}" alt="">
+                            {% endif %}
+                        </div>
+                        <div class="about-three__border"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="about-three__right">
+                    <div class="section-title text-left">
+                        <div class="section-sub-title-box">
+                            <p class="section-sub-title">About D&D Exterior</p>
+                            <div class="section-title-shape-1">
+                                <img src="{% static 'app_core/images/shape.png' %}" alt="">
+                            </div>
+                        </div>
+                        <h2 class="section-title__title">D&D Exterior - exceptional roofing services</h2>
+                    </div>
+                    <p class="about-three__text">{{about.about|safe}}</p>
+                    {% comment %} <ul class="list-unstyled about-three__point">
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="text">
+                                <p>Exploring version oflorem veritatis proin</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="text">
+                                <p>Auctor aliquet aenean simply free text veritatis quis</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="text">
+                                <p>Consequat ipsum nec lorem sagittis sem nibh.</p>
+                            </div>
+                        </li>
+                    </ul> {% endcomment %}
+                    {% comment %} <a href="about.html" class="thm-btn about-three__btn"> <i class="fa fa-arrow-right"></i> Discover more</a> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--About Three End-->
+
+        <!--Team Details Start-->
+        <section class="team-details" style="padding-top: 0px !important; padding-bottom: 120px !important;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="team-details__left">
+                            <div class="team-details__img">
+                                <img src="{% static 'app_core/assets/images/team/team-details-img.jpg' %}" alt="">
+                                <div class="team-details__big-text">Mision</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="team-details__right">
+                            <div class="team-details__content">
+                                <div class="section-title text-left">
+                                    <div class="section-sub-title-box">
+                                        <p class="section-sub-title">Mision</p>
+                                        <div class="section-title-shape-1">
+                                            <img src="{% static 'app_core/images/shape.png' %}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2 class="section-title__title">Our Mision in D&D Exterior</h2>
+
+                                <p class="team-details__text-2">{{about.mision|safe}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Team Details End-->
+

@@ -20,9 +20,8 @@ Open Street Map
 {% endblock extra_styles %}
 
 {% block content %}
-
 <!-- start Banner Contact -->
-    {% include 'app_core/snippets/banner_contact.html' %}
+    {% include 'app_core/snippets/banner_general.html' %}
 <!-- end Banner Contact -->
 
 <!-- start Contact Section -->
@@ -62,7 +61,7 @@ Open Street Map
     var markerLocation = [latitude,longitude];
 
     // Define la URL de la imagen personalizada
-    var imageUrl = '{% static "app_core/images/marker_map.webp" %}';
+    var imageUrl = '{% static "app_core/images/map_marker.png" %}';
 
     // Crea un icono personalizado con la imagen
     var customIcon = L.icon({
@@ -179,7 +178,6 @@ Open Street Map
                 var userNameField = document.querySelector('input[name="userName"]');
                 var userEmailField = document.querySelector('input[name="userEmail"]');
                 var userPhoneField = document.querySelector('input[name="userPhone"]');
-                var userSubjectField = document.querySelector('input[name="userSubject"]');
                 var userMessageField = document.querySelector('textarea[name="userMessage"]');
                 var userCaptchaField = document.querySelector('input[name="captcha"]');
 
@@ -187,7 +185,6 @@ Open Street Map
                 userNameField.value = '';
                 userEmailField.value = '';
                 userPhoneField.value = '';
-                userSubjectField.value = '';
                 userMessageField.value = '';
                 userCaptchaField.value = '';
                 var captchaButton = document.getElementById('reload_captcha');

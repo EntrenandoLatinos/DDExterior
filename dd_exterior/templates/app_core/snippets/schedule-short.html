@@ -9,6 +9,6 @@ usar esta opcion para mostrar por defecto en modo abreviado
 {% else %}
     {{ schedule.open_time }} - {{ schedule.close_time }}
 {% endif %}   
-{% if not forloop.last %}<br>
+{% if not forloop.last %} /
 {% endif %}
 {% endfor %} 
