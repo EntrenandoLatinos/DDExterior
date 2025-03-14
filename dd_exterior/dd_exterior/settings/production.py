@@ -3,8 +3,11 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['localhost']
-CSRF_TRUSTED_ORIGINS = []
+ALLOWED_HOSTS = ['.ddexteriorllc.com','167.71.23.219','2604:a880:400:d1:0:1:3c63:4001', 'localhost']
+CSRF_TRUSTED_ORIGINS = [
+    'https://ddexteriorllc.com',
+    'https://www.ddexteriorllc.com',
+]
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
