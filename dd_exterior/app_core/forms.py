@@ -124,9 +124,11 @@ class BannerForm(forms.ModelForm):
 class AboutForm(forms.ModelForm):
     class Meta:
         model = About
-        fields = ['company_name', 'image', 'image_mission_vision', 'about', 'mision', 'vision', 'image_google', 'url_google']
+        fields = ['company_name', 'image','image_1','image_2', 'image_mission_vision', 'about', 'mision', 'vision','counter','counter_value', 'image_google', 'url_google']
         widgets = {
             'company_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'counter': forms.TextInput(attrs={'class': 'form-control'}),
+            'counter_value': forms.TextInput(attrs={'class': 'form-control'}),
             'url_google': forms.TextInput(attrs={'class': 'form-control', 'type': 'url'}),
         }
 
@@ -134,7 +136,7 @@ class AboutForm(forms.ModelForm):
 class SkillForm(forms.ModelForm):
     class Meta:
         model = Skill
-        fields = ['title1', 'description1', 'title2', 'description2', 'title3', 'description3']
+        fields = ['title1', 'description1', 'title2', 'description2', 'title3', 'description3', 'title4', 'description4']
         widgets = {
             'title1': forms.TextInput(attrs={'class': 'form-control'}),
             'description1': forms.Textarea(attrs={'class': 'resizable_textarea form-control'}),
@@ -142,6 +144,8 @@ class SkillForm(forms.ModelForm):
             'description2': forms.Textarea(attrs={'class': 'resizable_textarea form-control'}),
             'title3': forms.TextInput(attrs={'class': 'form-control'}),
             'description3': forms.Textarea(attrs={'class': 'resizable_textarea form-control'}),
+            'title4': forms.TextInput(attrs={'class': 'form-control'}),
+            'description4': forms.Textarea(attrs={'class': 'resizable_textarea form-control'}),
         }
 
 

@@ -1,84 +1,53 @@
 {% load static %}
 
-<!--About One Start-->
-<section class="about-one">
-    <div class="about-one__shape float-bob-x">
-        <img src="{% static 'app_core/assets/images/shapes/about-one-shape.png' %}" alt="">
-    </div>
+<!--Team One Start-->
+<section class="team-one team-two">
     <div class="container">
+        <div class="section-title text-center">
+            <div class="section-sub-title-box">
+                <p class="section-sub-title">Our Services</p>
+                <div class="section-title-shape-1">
+                    <img src="{% static 'app_core/images/shape.png' %}" alt="">
+                </div>
+            </div>
+            <h2 class="section-title__title">learn about the services we offer </h2>
+        </div>
         <div class="row">
-            <div class="col-xl-6">
-                <div class="about-one__left">
-                    <div class="about-one__img-box wow slideInLeft" data-wow-delay="100ms"
-                    data-wow-duration="2500ms">
-                        <div class="about-one__img">
-                            <img src="{% static 'app_core/assets/images/resources/about-one-img-1.jpg' %}" alt="">
+            <!--Team One Single Start-->
+            {% for service in servicios %}
+            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                <div class="team-one__single">
+                    <div class="team-one__img-box">
+                        <div class="team-one__img">
+                            {% if service.image %}
+                            <img src="{{service.image.url}}" alt="D&D Exterior {{service.name}}">
+                            {% else %}
+                            <img src="{% static 'app_core/assets/images/team/team-1-1.jpg' %}" alt="">
+                            {% endif %}
                         </div>
-                        <div class="about-one__line">
-                            <img src="{% static 'app_core/assets/images/shapes/about-one-line.png' %}" alt="">
-                        </div>
-                        <div class="about-one__satisfied">
-                            <div class="about-one__satisfied-inner">
-                                <div class="about-one__satisfied-shape">
-                                    <img src="{% static 'app_core/assets/images/shapes/about-one-satisfied-shape-1.png' %}" alt="">
-                                </div>
-                                <div class="about-one__satisfied-content">
-                                    <div class="about-one__satisfied-count-box">
-                                        <h3 class="odometer" data-count="98">00</h3>
-                                        <span class="about-one__satisfied-percent">%</span>
-                                    </div>
-                                    <p class="about-one__satisfied-text">Satisfied customers</p>
-                                </div>
+                        {% comment %} <ul class="list-unstyled team-one__social">
+                            <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul> {% endcomment %}
+                    </div>
+                    <div class="team-one__content-box">
+                        <div class="team-one__content">
+                            <h3 class="team-one__name"><a href="{% url 'app_core:services_view' service.slug %}">{{ service.name }}</a></h3>
+                            {% comment %} <p class="team-one__sub-title">Executive</p> {% endcomment %}
+                            {% comment %} <ul class="list-unstyled team-one__social-two">
+                                <li><a href="#"><i class="fas fa-share-alt"></i></a></li>
+                            </ul> {% endcomment %}
+                            <div class="team-one__shape">
+                                <img src="{% static 'app_core/assets/images/shapes/team-one-shape.png' %}" alt="">
                             </div>
                         </div>
-                        <div class="about-one__big-text">roofing</div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6">
-                <div class="about-one__right">
-                    <div class="section-title text-left">
-                        <div class="section-sub-title-box">
-                            <p class="section-sub-title">About roofsie</p>
-                            <div class="section-title-shape-1">
-                                <img src="{% static 'app_core/assets/images/shapes/section-title-shape-1.png' %}" alt="">
-                            </div>
-                        </div>
-                        <h2 class="section-title__title">Experienced & quality roofing services providers</h2>
-                    </div>
-                    <p class="about-one__text">Nulla commodo dolor massa, vel pellentesque nulla congue quis. Fusce ut convallis diam. Nam id tortor et nunc tempor faucibus. Sed eu leo egestas, imperdiet felis sed, vestibulum ligula.</p>
-                    <ul class="list-unstyled about-one__points">
-                        <li>
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <span class="icon-confirmation"></span>
-                                </div>
-                                <div class="text-box">
-                                    <p>Innovative work</p>
-                                </div>
-                            </div>
-                            <div class="text-box-two">
-                                <p>Lorem ipsum dolor sit ame sedme consectetur nod.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <span class="icon-confirmation"></span>
-                                </div>
-                                <div class="text-box">
-                                    <p>Certified company</p>
-                                </div>
-                            </div>
-                            <div class="text-box-two">
-                                <p>Lorem ipsum dolor sit ame sedme consectetur nod.</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="about.html" class="thm-btn about-one__btn"> <i class="fa fa-arrow-right"></i> Discover more</a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
-<!--About One End-->
+<!--Team One End-->

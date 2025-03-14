@@ -2,16 +2,17 @@
 
 <!--Page Header Start-->
 <section class="page-header">
-    <div class="page-header-bg" style="background-image: url({% static 'app_core/assets/images/backgrounds/page-header-bg.jpg' %})">
+    <div class="page-header-bg" style="background-image: url({% static 'app_core/images/BANNER-SECTION.webp' %})">
     </div>
+    {% comment %} <img src="{% static 'app_core/images/BANNER-ELEMENTO-SECTION.webp' %}" alt="banner sections D&D Exterior" style="position: absolute; bottom: 0; left: 0; z-index: 99; pointer-events: none;">  {% endcomment %}
     <div class="container">
         <div class="page-header__inner">
             <ul class="thm-breadcrumb list-unstyled">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{% url 'app_core:index' %}">Home</a></li>
                 <li><span>/</span></li>
-                <li>{{request.resolver_match.url_name}}</li>
+                <li style="text-transform: capitalize;">{{request.resolver_match.url_name}}</li>
             </ul>
-            <h2>{{request.resolver_match.url_name}}</h2>
+            <h2 style="text-transform: capitalize;">{{request.resolver_match.url_name}}</h2>
         </div>
     </div>
 </section>

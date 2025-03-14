@@ -39,13 +39,25 @@
                         }
                     }'>
                         <!--Brand One Single-->
+                        {% for partner in partners %}
+                        {% if partner.image and partner.url %}
+                        <a href="{{partner.url}}" target="_blank">
                         <div class="brand-one__single">
                             <div class="brand-one__img">
-                                <img src="{% static 'app_core/assets/images/brand/brand-1-1.png' %}" alt="">
+                                <img src="{{partner.image.url}}" alt="">
                             </div>
                         </div>
-                        <!--Brand One Single-->
+                        </a>
+                        {%  elif  partner.image %}
                         <div class="brand-one__single">
+                            <div class="brand-one__img">
+                                <img src="{{partner.image.url}}" alt="">
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        <!--Brand One Single-->
+                        {% comment %} <div class="brand-one__single">
                             <div class="brand-one__img">
                                 <img src="{% static 'app_core/assets/images/brand/brand-1-2.png' %}" alt="">
                             </div>
@@ -67,7 +79,7 @@
                             <div class="brand-one__img">
                                 <img src="{% static 'app_core/assets/images/brand/brand-1-5.png' %}" alt="">
                             </div>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                 </div>
             </div>

@@ -1,0 +1,186 @@
+{% load static %}
+<style>
+    .why-choose-two__list-one, .why-choose-two__list-two {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .why-choose-two__list-one li, .why-choose-two__list-two li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px; /* Ajusta el margen según sea necesario */
+    }
+  .clearfix-2 {
+      min-height: 170px;
+  }  
+</style>
+{% comment %} 
+
+<!--Why Choose Two Start-->
+<section class="why-choose-two">
+    <div class="why-choose-two-bg"
+        style="background-image: url({% static 'app_core/assets/images/backgrounds/why-choose-two-bg.jpg' %});"></div>
+    <div class="container">
+        <div class="section-title text-center">
+            <div class="section-sub-title-box">
+                <p class="section-sub-title" style="color: var(--roofsie-secondary)">why choose us</p>
+                <div class="section-title-shape-1">
+                    <img src="{% static 'app_core/images/shape.png' %}" alt="">
+                </div>
+            </div>
+            <h2 class="section-title__title">Few reasons to choose <br> our company</h2>
+        </div>
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="why-choose-two__left">
+                    <ul class="list-unstyled why-choose-two__list-one">
+                        <li>
+                            <div class="icon">
+                                <span class="icon-roof-2"></span>
+                            </div>
+                            <div class="content">
+                                <h4>{{skills.title1}}</h4>
+                                <p>{{skills.description1}}</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-mission"></span>
+                            </div>
+                            <div class="content">
+                                <h4>{{skills.title2}}</h4>
+                                <p>{{skills.description2}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="why-choose-two__middle">
+                    <div class="why-choose-two__img-box">
+                        <div class="why-choose-two__img-one">
+                            {% comment %} <img src="{% static 'app_core/images/pose-3.webp' %}" alt="Pet D&D Exterior"> 
+                            <img src="{% static 'app_core/assets/images/resources/why-choose-two-img-1.jpg' %}" alt="">
+                            <div class="why-choose-two__img-two">
+                                {% comment %} <img src="{% static 'app_core/images/macota.png' %}" style="width: auto; height: 600px;" alt=""> 
+                                <img src="{% static 'app_core/assets/images/resources/why-choose-two-img-2.png' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="why-choose-two__right">
+                    <ul class="list-unstyled why-choose-two__list-two clearfix">
+                        <li class="clearfix">
+                            <div class="content">
+                                <h4>{{skills.title3}}</h4>
+                                <p>{{skills.description3}}</p>
+                            </div>
+                            <div class="icon">
+                                <span class="icon-shield"></span>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="content">
+                                <h4>{{skills.title4}}</h4>
+                                <p>{{skills.description4}}</p>
+                            </div>
+                            <div class="icon">
+                                <span class="icon-construction-worker"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Why Choose Two End--> {% endcomment %}
+
+        <!--Why Choose Two Start-->
+        <section class="why-choose-two">
+            <div class="why-choose-two-bg"
+            style="background-image: url('{% static "app_core/assets/images/backgrounds/why-choose-two-bg.jpg" %}');">
+        </div>
+            <div class="container">
+                <div class="section-title text-center">
+                    <div class="section-sub-title-box">
+                        <p class="section-sub-title">why choose us</p>
+                        <div class="section-title-shape-1">
+                            <img src="{% static 'app_core/images/shape.png' %} " alt="">
+                            {% comment %} <img src="{% static 'app_core/assets/images/shapes/section-title-shape-1.png' %} " alt=""> {% endcomment %}
+                        </div>
+                    </div>
+                    <h2 class="section-title__title">Few reasons to choose <br> our company</h2>
+                </div>
+                <div class="row">
+                    <div class="col-xl-4">
+                        <div class="why-choose-two__left">
+                            <ul class="list-unstyled why-choose-two__list-one">
+                                <li class="clearfix-2">
+                                    <div class="icon">
+                                        <span class="icon-roof-2"></span>
+                                    </div>
+                                    <div class="content">
+                                        <h4>{{skills.title1}}</h4>
+                                        <p>{{skills.description1}}</p>
+
+                                    </div>
+                                </li>
+                                <li class="clearfix-2">
+                                    <div class="icon">
+                                        <span class="icon-mission"></span>
+                                    </div>
+                                    <div class="content">
+                                        <h4>{{skills.title2}}</h4>
+                                        <p>{{skills.description2}}</p>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="why-choose-two__middle">
+                            <div class="why-choose-two__img-box">
+                                <div class="why-choose-two__img-one">
+                                    <img src="{% static 'app_core/images/pose-3.webp' %} " alt="">
+                                    <div class="why-choose-two__img-two">
+                                        {% comment %} <img src="{% static 'app_core/assets/images/resources/why-choose-two-img-2.png' %} " alt=""> {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="why-choose-two__right">
+                            <ul class="list-unstyled why-choose-two__list-two clearfix">
+                                <li class="clearfix">
+                                    <div class="content">
+                                        <h4>{{skills.title3}}</h4>
+                                        <p>{{skills.description3}}</p>
+
+                                    </div>
+                                    <div class="icon">
+                                        <span class="icon-shield"></span>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="content">
+                                        <h4>{{skills.title4}}</h4>
+                                        <p>{{skills.description4}}</p>
+
+                                    </div>
+                                    <div class="icon">
+                                        <span class="icon-construction-worker"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Why Choose Two End-->

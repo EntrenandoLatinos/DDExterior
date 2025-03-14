@@ -8,7 +8,7 @@
                 <div class="section-sub-title-box">
                     <p class="section-sub-title">Latest Projects</p>
                     <div class="section-title-shape-1">
-                        <img src="{% static 'app_core/assets/images/shapes/section-title-shape-1.png' %}" alt="">
+                        <img src="{% static 'app_core/images/shape.png' %}" alt="">
                     </div>
                 </div>
                 <h2 class="section-title__title">Explore our latest projects <br> for your inspiration</h2>
@@ -41,96 +41,23 @@
                     }
                 }
             }'>
-                <!--Project One Single Start-->
+                <!--Project One Single Start-->  
+                {% for img in works %}
                 <div class="item">
-                    <div class="project-one__single">
-                        <div class="project-one__img-box">
-                            <div class="project-one__img">
-                                <img src="{% static 'app_core/assets/images/project/project-1-1.jpg' %}" alt="">
-                            </div>
-                            <div class="project-one__content">
-                                <h4 class="project-one__title"><a href="work-details.html">Modern <br> roofing style</a>
-                                </h4>
-                            </div>
-                            <div class="project-one__link">
-                                <a class="img-popup" href="{% static 'app_core/assets/images/project/project-1-1.jpg' %}"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    {% comment %} <div class="project-one__single"> {% endcomment %}
+                        {% comment %} <div class="project-one__img-box"> {% endcomment %}
+                            {% comment %} <div class="project-one__img"> {% endcomment %}
+                                <a href="{{img.image.url}}" data-fancybox="gallery">
+
+                                <img src="{{img.image.url}}" alt="" style="height: 430px; width: 370px; object-fit: cover; object-position: center">
+                </a>
+
+                            {% comment %} </div> {% endcomment %}
+                        {% comment %} </div> {% endcomment %}
+                    {% comment %} </div> {% endcomment %}
                 </div>
-                <!--Project One Single End-->
-                <!--Project One Single Start-->
-                <div class="item">
-                    <div class="project-one__single">
-                        <div class="project-one__img-box">
-                            <div class="project-one__img">
-                                <img src="{% static 'app_core/assets/images/project/project-1-2.jpg' %}" alt="">
-                            </div>
-                            <div class="project-one__content">
-                                <h4 class="project-one__title"><a href="work-details.html">Modern <br> roofing style</a>
-                                </h4>
-                            </div>
-                            <div class="project-one__link">
-                                <a class="img-popup" href="{% static 'app_core/assets/images/project/project-1-2.jpg' %}"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Project One Single End-->
-                <!--Project One Single Start-->
-                <div class="item">
-                    <div class="project-one__single">
-                        <div class="project-one__img-box">
-                            <div class="project-one__img">
-                                <img src="{% static 'app_core/assets/images/project/project-1-3.jpg' %}" alt="">
-                            </div>
-                            <div class="project-one__content">
-                                <h4 class="project-one__title"><a href="work-details.html">Modern <br> roofing style</a>
-                                </h4>
-                            </div>
-                            <div class="project-one__link">
-                                <a class="img-popup" href="{% static 'app_core/assets/images/project/project-1-3.jpg' %}"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Project One Single End-->
-                <!--Project One Single Start-->
-                <div class="item">
-                    <div class="project-one__single">
-                        <div class="project-one__img-box">
-                            <div class="project-one__img">
-                                <img src="{% static 'app_core/assets/images/project/project-1-4.jpg' %}" alt="">
-                            </div>
-                            <div class="project-one__content">
-                                <h4 class="project-one__title"><a href="work-details.html">Modern <br> roofing style</a>
-                                </h4>
-                            </div>
-                            <div class="project-one__link">
-                                <a class="img-popup" href="{% static 'app_core/assets/images/project/project-1-4.jpg' %}"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Project One Single End-->
-                <!--Project One Single Start-->
-                <div class="item">
-                    <div class="project-one__single">
-                        <div class="project-one__img-box">
-                            <div class="project-one__img">
-                                <img src="{% static 'app_core/assets/images/project/project-1-1.jpg' %}" alt="">
-                            </div>
-                            <div class="project-one__content">
-                                <h4 class="project-one__title"><a href="work-details.html">Modern <br> roofing style</a>
-                                </h4>
-                            </div>
-                            <div class="project-one__link">
-                                <a class="img-popup" href="{% static 'app_core/assets/images/project/project-1-1.jpg' %}"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Project One Single End-->
+                {% endfor %}
+                {% comment %} <!--Project One Single End-->
                 <!--Project One Single Start-->
                 <div class="item">
                     <div class="project-one__single">
@@ -257,6 +184,78 @@
                     </div>
                 </div>
                 <!--Project One Single End-->
+                <!--Project One Single Start-->
+                <div class="item">
+                    <div class="project-one__single">
+                        <div class="project-one__img-box">
+                            <div class="project-one__img">
+                                <img src="{% static 'app_core/assets/images/project/project-1-1.jpg' %}" alt="">
+                            </div>
+                            <div class="project-one__content">
+                                <h4 class="project-one__title"><a href="work-details.html">Modern <br> roofing style</a>
+                                </h4>
+                            </div>
+                            <div class="project-one__link">
+                                <a class="img-popup" href="{% static 'app_core/assets/images/project/project-1-1.jpg' %}"><i class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Project One Single End-->
+                <!--Project One Single Start-->
+                <div class="item">
+                    <div class="project-one__single">
+                        <div class="project-one__img-box">
+                            <div class="project-one__img">
+                                <img src="{% static 'app_core/assets/images/project/project-1-2.jpg' %}" alt="">
+                            </div>
+                            <div class="project-one__content">
+                                <h4 class="project-one__title"><a href="work-details.html">Modern <br> roofing style</a>
+                                </h4>
+                            </div>
+                            <div class="project-one__link">
+                                <a class="img-popup" href="{% static 'app_core/assets/images/project/project-1-2.jpg' %}"><i class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Project One Single End-->
+                <!--Project One Single Start-->
+                <div class="item">
+                    <div class="project-one__single">
+                        <div class="project-one__img-box">
+                            <div class="project-one__img">
+                                <img src="{% static 'app_core/assets/images/project/project-1-3.jpg' %}" alt="">
+                            </div>
+                            <div class="project-one__content">
+                                <h4 class="project-one__title"><a href="work-details.html">Modern <br> roofing style</a>
+                                </h4>
+                            </div>
+                            <div class="project-one__link">
+                                <a class="img-popup" href="{% static 'app_core/assets/images/project/project-1-3.jpg' %}"><i class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Project One Single End-->
+                <!--Project One Single Start-->
+                <div class="item">
+                    <div class="project-one__single">
+                        <div class="project-one__img-box">
+                            <div class="project-one__img">
+                                <img src="{% static 'app_core/assets/images/project/project-1-4.jpg' %}" alt="">
+                            </div>
+                            <div class="project-one__content">
+                                <h4 class="project-one__title"><a href="work-details.html">Modern <br> roofing style</a>
+                                </h4>
+                            </div>
+                            <div class="project-one__link">
+                                <a class="img-popup" href="{% static 'app_core/assets/images/project/project-1-4.jpg' %}"><i class="fa fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Project One Single End--> {% endcomment %}
             </div>
         </div>
     </div>

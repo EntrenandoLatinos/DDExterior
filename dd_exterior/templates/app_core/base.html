@@ -15,9 +15,9 @@
         content="{% for servicio in servicios %} {{servicio.title}},{% endfor %} | {{ about.company_name }}">
     <meta name="robots" content="index, follow">
 
-    <link rel="icon" type="image/png" sizes="50x50" href="{% static 'app_core/images/favicon.png' %}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'app_core/images/apple-icon-180x180.png' %}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'app_core/images/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="50x50" href="{% static 'app_core/images/FAVICON-50PX.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'app_core/images/FAVICON-180PX.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'app_core/images/FAVICON-196PX.png' %}">
 
     <script type="application/ld+json">
         {
@@ -110,13 +110,11 @@
     <link rel="stylesheet" href="{% static 'app_core/development/css/preloaders.css' %}">
     <link rel="stylesheet" href="{% static 'app_core/development/css/btns-fixed.css' %}">
     <link rel="stylesheet" href="{% static 'app_core/development/css/easy-navigation.css' %}">
-    <link rel="stylesheet" href="{% static 'app_core/development/css/banner-home.css' %}">
     <link rel="stylesheet" href="{% static 'app_core/development/css/social-media.css' %}">
-    <link rel="stylesheet" href="{% static 'app_core/development/css/responsive-default.css' %}">
     <link rel="stylesheet" href="{% static 'app_core/development/css/menu.css' %}" media="all">
 
     <!-- Incluye el archivo CSS de Fancybox -- permite abrir un galeria de imagenes-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -168,16 +166,17 @@
 </head>
 
 <body>
-    <div class="preloader">
+    {% comment %} <div class="preloader">
         <div class="preloader__image"></div>
-    </div>
+    </div> {% endcomment %}
+    {% include 'app_core/snippets/group-btn-fixed-2.html' %}
     <!-- /.preloader -->
     {% comment %}
         {% include 'app_core/snippets/preloader-1.html' %}
         {% include 'app_core/snippets/preloader-2.html' %}
     {% endcomment %}
 
-    {% comment %} {% include 'app_core/snippets/group-btn-fixed-2.html' %} {% endcomment %}
+    {% comment %}  {% endcomment %}
 
     <!-- inicio ----------- Implementación menu version mobile -->
     {% comment %}
@@ -278,14 +277,13 @@
     <script type="text/javascript" src="{% static 'app_core/development/js/easy-navigation.js' %}"></script>
     <script type="text/javascript" src="{% static 'app_core/development/js/share-on-media.js' %}"></script>
     <script type="text/javascript" src="{% static 'app_core/development/js/send-email.js' %}"></script>
-    <script type="text/javascript" src="{% static 'app_core/development/js/banner-home.js' %}"></script>
     <script type="text/javascript" src="{% static 'app_core/development/js/select-header-item.js' %}"></script>
     <script type="text/javascript" src="{% static 'app_core/development/js/format-contact-phone.js' %}"></script>
     <script type="text/javascript" src="{% static 'app_core/development/js/lazy-loading.js' %}"></script>
 
 
     <!-- Incluye los archivos JavaScript de Fancybox -- permite abrir un galeria de imagenes -->
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
     <script>
         Fancybox.bind("[data-fancybox]", {

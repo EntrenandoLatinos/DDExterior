@@ -4,9 +4,9 @@
         <section class="blog-sidebar">
             <div class="container">
                 <div class="blog-sidebar__delivering-services">
-                    <div class="blog-sidebar__delivering-services-icon">
+                    {% comment %} <div class="blog-sidebar__delivering-services-icon">
                         <a href="{% url 'app_core:index' %}"><img src="{% static 'app_core/assets/images/icon/blog-sidebar__delivering-services-icon.png' %}" alt=""></a>
-                    </div>
+                    </div> {% endcomment %}
                     <h3 class="blog-sidebar__delivering-services-title"><a href="{% url 'app_core:index' %}">{{privacy.title}}</a></h3>
                 </div>
                 <div class="blog-sidebar__bottom-box">
@@ -16,9 +16,9 @@
                     <p class="blog-sidebar__bottom-box-text">{{privacy.description | safe}}</p>
                 </div>
                 <br>
-                <div class="blog-sidebar__load-more">
+                {% comment %} <div class="blog-sidebar__load-more">
                     <a href="{% url 'app_core:index' %}" class="thm-btn blog-sidebar-load-more__btn"> <i class="fa fa-arrow-right"></i>Home</a>
-                </div>
+                </div> {% endcomment %}
             </div>
         </section>
         <!--Blog Page End-->

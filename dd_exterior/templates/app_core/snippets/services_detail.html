@@ -14,7 +14,8 @@
                         </ul>
                     </div>
                     <div class="service-details__need-help">
-                        <div class="service-details__need-help-bg" style="background-image: url({% static 'app_core/assets/images/backgrounds/service-details-need-help-bg.jpg' %})">
+                        {% comment %} <div class="service-details__need-help-bg" style="background-image: url({% static 'app_core/assets/images/backgrounds/service-details-need-help-bg.jpg' %})"> {% endcomment %}
+                        <div class="service-details__need-help-bg" style="background-color: #005685">
                         </div>
                         <div class="service-details__need-help-icon">
                             <span class="icon-phone-call"></span>
@@ -22,7 +23,7 @@
                         <h2 class="service-details__need-help-title">Best solution <br> to your house & <br> office roofing</h2>
                         <div class="service-details__need-help-contact">
                             <p>Call Anytime</p>
-                            <a href="tel:92003680903"> +92 (003) 68-090</a>
+                            <a href="tel:{{contact.phone1}}">{{contact.phone1}}</a>
                         </div>
                     </div>
                 </div>
@@ -30,121 +31,47 @@
             <div class="col-xl-8 col-lg-7">
                 <div class="service-details__right">
                     <div class="service-details__img">
+                        {% if servicio.image_large %}
+                        <img src="{{servicio.image_large.url}}" alt="{{servicio.title}}">
+                        {% else %}
                         <img src="{% static 'app_core/assets/images/services/services-details-img-1.jpg' %}" alt="">
-                        <div class="service-details__icon">
+                        {% endif %}
+                        {% comment %} <div class="service-details__icon">
                             <span class="icon-joist"></span>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                     <div class="service-details__content">
-                        <h3 class="service-details__content-title">Single play roofing</h3>
-                        <p class="service-details__text-1">Lorem ipsum is simply free text used by copytyping refreshing. Neque porro est qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Aelltes port lacus quis enim var sed efficitur turpis gilla sed sit amet finibus eros. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ndustry standard dummy text ever since the 1500s.</p>
-                        <p class="service-details__text-2">When an unknown printer took a galley type and scrambled it to make a type specimen book.</p>
-                        <p class="service-details__text-3">It has survived not only five centuries. Lorem Ipsum is simply dummy text of the new design printng and type setting Ipsum take a look at our round. When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-                    </div>
-                    <div class="service-details__points-box">
-                        <ul class="list-unstyled service-details__points">
-                            <li>
-                                <div class="service-details__points-icon">
-                                    <span class="icon-roof"></span>
-                                </div>
-                                <div class="service-details__points-content">
-                                    <p>Duis aute irure dolor in <br> reprehenderit in voluptate <br> velit esse cillum.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="service-details__points-icon">
-                                    <span class="icon-roof-1"></span>
-                                </div>
-                                <div class="service-details__points-content">
-                                    <p>Duis aute irure dolor in <br> reprehenderit in voluptate <br> velit esse cillum.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <p class="service-details__text-4">When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting. Lorem Ipsum has been the ndustry standard dummy text ever since the 1500s.</p>
-                    <div class="service-details__benefits">
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="service-details__benefits-single">
-                                    <div class="service-details__benefits-img">
-                                        <img src="{% static 'app_core/assets/images/services/service-details-benefits-img-1.jpg' %}" alt="">
-                                    </div>
-                                    <div class="service-details__benefits-content">
-                                        <h3 class="service-details__benefits-title">Service benefits</h3>
-                                        <p class="service-details__benefits-text">When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="service-details__benefits-single">
-                                    <div class="service-details__benefits-img">
-                                        <img src="{% static 'app_core/assets/images/services/service-details-benefits-img-2.jpg' %}" alt="">
-                                    </div>
-                                    <div class="service-details__benefits-content">
-                                        <ul class="list-unstyled service-details__benefits-points">
-                                            <li>
-                                                <div class="icon">
-                                                    <i class="fa fa-arrow-right"></i>
-                                                </div>
-                                                <div class="text">
-                                                    <p>In id diam nec nisi congue tincidunt</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <i class="fa fa-arrow-right"></i>
-                                                </div>
-                                                <div class="text">
-                                                    <p>Pn malesuada purus a ligula dapibus</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <i class="fa fa-arrow-right"></i>
-                                                </div>
-                                                <div class="text">
-                                                    <p>Vestibulum tincidunt arcu vel nisl</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <i class="fa fa-arrow-right"></i>
-                                                </div>
-                                                <div class="text">
-                                                    <p>Sed tristique lorem non tesque</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <h3 class="service-details__content-title">{{servicio.title}}</h3>
+                        <p class="service-details__text-1">{{servicio.description|safe}}</p>
                     </div>
                 </div>
-                <div class="container">
+                <div class="container " style="margin-top: 80px">
                     <div class="blog-details__right">
                         <div class="comment-one">
-                            <h3 class="comment-one__title">2 comments</h3>
+                            {% for subservicio in subservicios  %}
                             <div class="comment-one__single">
-                                <div class="comment-one__image">
+                                <div class="comment-one__image" style="display: flex; align-items: center; " >
+                                    {% if subservicio.image %}
+                                    <img src="{{subservicio.image.url }}" alt="{{subservicio.title}}">
+                                    {% else %}
                                     <img src="{% static 'app_core/assets/images/blog/comment-1-1.jpg' %}" alt="">
+                                    {% endif %}
                                 </div>
                                 <div class="comment-one__content">
-                                    <h3>Kevin Martin</h3>
-                                    <p>Mauris non dignissim purus, ac commodo diam. Donec sit amet lacinia nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus nulla, sollicitudin at euismod.</p>
-                                    <a href="blog-details.html" class="thm-btn comment-one__btn">Reply</a>
+                                    <h3>{{subservicio.title}}</h3>
+                                    <p>{{subservicio.description|safe}}</p>
                                 </div>
                             </div>
-                            <div class="comment-one__single">
+                            {% endfor %}
+                            {% comment %} <div class="comment-one__single">
                                 <div class="comment-one__image">
                                     <img src="{% static 'app_core/assets/images/blog/comment-1-2.jpg' %}" alt="">
                                 </div>
                                 <div class="comment-one__content">
                                     <h3>Sarah Albert</h3>
                                     <p>Mauris non dignissim purus, ac commodo diam. Donec sit amet lacinia nulla. Aliquam quis purus in justo pulvinar tempor. Aliquam tellus nulla, sollicitudin at euismod.</p>
-                                    <a href="blog-details.html" class="thm-btn comment-one__btn">Reply</a>
                                 </div>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
                     </div>
                 </div>

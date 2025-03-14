@@ -4,7 +4,7 @@
         <section class="cta-one">
             <div class="cta-one__img-box">
                 <div class="cta-one__img">
-                    <img src="{% static 'app_core/assets/images/resources/cta-one-img-1.jpg' %}" alt="">
+                    <img src="{% static 'app_core/images/mascota.webp' %}" alt="">
                 </div>
             </div>
             <div class="container">
@@ -14,7 +14,7 @@
                         <h3 class="cta-one__title">Need roofing services?</h3>
                     </div>
                     <div class="cta-one__btn-box">
-                        <a href="contact.html" class="thm-btn cta-one__btn"> <i class="fa fa-arrow-right"></i> get free quote</a>
+                        <a href="{% url 'app_core:contact' %}" class="thm-btn cta-one__btn"> <i class="fa fa-arrow-right"></i> get free quote</a>
                     </div>
                 </div>
             </div>
@@ -29,13 +29,12 @@
                         <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                             <div class="footer-widget__column footer-widget__about">
                                 <div class="footer-widget__about-text-box">
-                                    <p class="footer-widget__about-text">Roofsie with more than two years of proven success in quality roofing services.</p>
+                                    <p class="footer-widget__about-text">Experts in restoration services, replacement and insurance claims management for siding, roofing, windows and more.</p>
                                 </div>
                                 <div class="site-footer__social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    {% for social in social_media %}
+                                    <a href="#"><i class="fab fa-{{social|lower}}"></i></a>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
@@ -43,15 +42,27 @@
                             <div class="footer-widget__column footer-widget__explore clearfix">
                                 <h3 class="footer-widget__title">Explore</h3>
                                 <ul class="footer-widget__explore-list list-unstyled clearfix">
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="work.html">Recent Works</a></li>
-                                    <li><a href="team.html">Our Team</a></li>
-                                    <li><a href="testimonials.html">Testimonials</a></li>
+                                    <li><a href="{% url 'app_core:index' %}" class="scrolltop">Home</a></li>
+                                    <li><a href="{% url 'app_core:about' %}" class="scrolltop">About</a></li>
+                                    <li><a href="{% url 'app_core:works' %}" class="scrolltop">Gallery</a></li>
+                                    <li><a href="{% url 'app_core:faq' %}" class="scrolltop">Faq's</a></li>
+                                    <li><a href="{% url 'app_core:contact' %}" class="scrolltop">Contact</a></li>
+                                    <li><a href="{% url 'app_core:privacy' %}" class="scrolltop">Privacy</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+
+                        <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                            <div class="footer-widget__column footer-widget__explore clearfix">
+                                <h3 class="footer-widget__title">Services</h3>
+                                <ul class="footer-widget__explore-list list-unstyled clearfix">
+                                    {% for service in servicios %}
+                                    <li><a href="{% url 'app_core:services_view' service.slug %}" class="scrolltop">{{service.name}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% comment %} <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
                             <div class="footer-widget__column footer-widget__newsletter clearfix">
                                 <h3 class="footer-widget__title">Newsletter</h3>
                                 <p class="footer-widget__newsletter-text">Subscribe to our newsletter and get update in your inbox.</p>
@@ -62,18 +73,18 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                        </div> {% endcomment %}
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                             <div class="footer-widget__column footer-widget__contact">
                                 <h3 class="footer-widget__title">Contact</h3>
-                                <p class="footer-widget__contact-text">88 Broklyn Golden Road Street, <br> New York. USA</p>
+                                <p class="footer-widget__contact-text">{{contact.location}}</p>
                                 <ul class="list-unstyled footer-widget__contact-list">
                                     <li>
                                         <div class="icon">
                                             <i class="fa fa-envelope"></i>
                                         </div>
                                         <div class="text">
-                                            <p><a href="mailto:needhelp@company.com ">needhelp@company.com</a></p>
+                                            <p><a href="mailto:{{contact.email}} ">{{contact.email}}</a></p>
                                         </div>
                                     </li>
                                     <li>
@@ -81,7 +92,10 @@
                                             <i class="fas fa-phone-alt"></i>
                                         </div>
                                         <div class="text">
-                                            <p><a href="tel:9200368090">+92 (003) 68-090</a></p>
+                                            <p><a href="tel:{{contact.phone1}}">{{contact.phone1}}</a></p>
+                                            {% if contact.phone2 %}
+                                            <p><a href="tel:{{contact.phone2}}">{{contact.phone2}}</a></p>
+                                            {% endif %}
                                         </div>
                                     </li>
                                 </ul>
@@ -93,7 +107,8 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="site-footer__bottom-inner">
-                                <p class="site-footer__bottom-text">{% include 'app_core/snippets/copy-right.html' %}</a></p>
+                                {% comment %} <p class="site-footer__bottom-text">{% include 'app_core/snippets/copy-right.html' %}</a></p> {% endcomment %}
+                                {% include 'app_core/snippets/copy-right.html' %}
                             </div>
                         </div>
                     </div>

@@ -8,7 +8,7 @@
             <div class="section-sub-title-box">
                 <p class="section-sub-title">testimonials</p>
                 <div class="section-title-shape-1">
-                    <img src="{% static 'app_core/assets/images/shapes/section-title-shape-1.png' %}" alt="">
+                    <img src="{% static 'app_core/images/shape.png' %}" alt="">
                 </div>
             </div>
             <h2 class="section-title__title">What they’re talking <br> about us</h2>
@@ -38,20 +38,21 @@
             }
         }'>
             <!--Testimonial One Single Start-->
+            {% for testimonial in testimonials %}
             <div class="item">
                 <div class="testimonial-one__single">
                     <div class="testimonial-one__client-info">
                         <div class="testimonial-one__client-img-box">
                             <div class="testimonial-one__client-img">
-                                <img src="{% static 'app_core/assets/images/testimonial/testimonial-1-1.jpg' %}" alt="">
+                                <img src="{{testimonial.image.url}}" alt="">
                             </div>
                         </div>
                         <div class="testimonial-one__client-details">
-                            <h4 class="testimonial-one__client-name">Jessica Brown</h4>
-                            <p class="testimonial-one__client-sub-title">CEO - Co Founder</p>
+                            <h4 class="testimonial-one__client-name">{{testimonial.name}}</h4>
+                            <p class="testimonial-one__client-sub-title">{{testimonial.position}}</p>
                         </div>
                     </div>
-                    <p class="testimonial-one__text">Exercitation ullamco laboris nisi ut aliquip ex ea ex commodo consequat duis aute aboris nisi ut aliquip  irure reprehederit in voluptate velit esse .</p>
+                    <p class="testimonial-one__text">{{testimonial.description}}</p>
                     <div class="testimonial-one__rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -61,7 +62,8 @@
                     </div>
                 </div>
             </div>
-            <!--Testimonial One Single End-->
+            {% endfor %}
+            {% comment %} <!--Testimonial One Single End-->
             <!--Testimonial One Single Start-->
             <div class="item">
                 <div class="testimonial-one__single">
@@ -136,7 +138,7 @@
                     </div>
                 </div>
             </div>
-            <!--Testimonial One Single End-->
+            <!--Testimonial One Single End--> {% endcomment %}
         </div>
     </div>
 </section>

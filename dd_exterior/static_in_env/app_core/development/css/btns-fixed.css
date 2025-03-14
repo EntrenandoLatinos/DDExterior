@@ -34,9 +34,9 @@
 /* -------------------------------------- inicio group-btn-fixed-1 -------------------------------------- */
 
 :root {
-  --default-color-btns: black;
-  --default-color-borde: #FAC521;
-  --default-color-icono: #FAC521;
+  --default-color-btns: white;
+  --default-color-borde: #005685;
+  --default-color-icono: #fe6a00;
 }
 
 .group-btn-fixed .btn-fixed-1 {

@@ -33,11 +33,11 @@
                         <h2 class="service-details__need-help-title">Best solution <br> to your house & <br> office roofing</h2>
                         <div class="service-details__need-help-contact">
                             <p>Call Anytime</p>
-                            <a href="tel:92003680903"> +92 (003) 68-090</a>
+                            <a href="tel:{{contact.phone1}}">{{contact.phone1}}</a>
                         </div>
                     </div>
                     <div class="service-details__download">
-                        <a href="contact.html" class="thm-btn service-details__btn"> <i class="fa fa-arrow-right"></i> Get a free quote</a>
+                        <a href="{% url 'app_core:contact' %}" class="thm-btn service-details__btn"> <i class="fa fa-arrow-right"></i> Get a free quote</a>
                     </div>
                 </div>
             </div>
