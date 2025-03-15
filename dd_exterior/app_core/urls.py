@@ -12,8 +12,7 @@ urlpatterns = [
     path('captcha/image/', general.captcha_image, name='captcha_image'),
     path('privacy/', general.privacy, name='privacy'),
     path('mail/', general.mail_view, name='mail'),
-    path('info/', general.follow_us, name='follow_us'),
-]
+    path('info/', general.follow_us, name='follow_us')]
 
 
 

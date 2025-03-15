@@ -1,5 +1,5 @@
 {% load static %}
-{% with name_company='Revisar la base de account, linea 2' bg_base_image='yes' %}
+{% with name_company='D&D Exterior' bg_base_image='yes' %}
     <!DOCTYPE html>
     <html lang="en">
 
@@ -8,7 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block head_title %}{{name_company}} | {% endblock head_title %}</title>
         <!-- FAVICONS ICON -->
-        <link href="{% static 'app_core/images/favicon.png' %}" rel="icon">
+        <link rel="icon" type="image/png" sizes="50x50" href="{% static 'app_core/images/FAVICON-50PX.png' %}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'app_core/images/FAVICON-180PX.png' %}">
+        <link rel="icon" type="image/png" sizes="192x192" href="{% static 'app_core/images/FAVICON-196PX.png' %}">
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="{% static 'app_user/vendors/bootstrap/dist/css/bootstrap.min.css' %}">
@@ -23,9 +25,9 @@
                 --bg-color-1: #d2151e;
                 --bg-color-2: #152332;
                 /* formulario login y logout */
-                --bg-brand: blue;
-                --bg-btn-form-account-submit: gray;
-                --bg-btn-form-account-campos: green;
+                --bg-brand: #ff6a01;
+                --bg-btn-form-account-submit: #ff6a01;
+                --bg-btn-form-account-campos: #005684;
                 --bg-btn-form-account-back: black;
                 --color-txt-form-account: white;
             }
@@ -73,7 +75,12 @@
 
             #container-body.bg-image-base {
                 position: relative;
-                background: url({% static 'app_core/images/base-account.webp' %}) no-repeat center center;
+                background: rgb(255,106,1);
+background: -moz-linear-gradient(323deg, rgba(255,106,1,1) 0%, rgba(0,86,132,1) 79%, rgba(0,86,132,1) 100%);
+background: -webkit-linear-gradient(323deg, rgba(255,106,1,1) 0%, rgba(0,86,132,1) 79%, rgba(0,86,132,1) 100%);
+background: linear-gradient(323deg, rgba(255,106,1,1) 0%, rgba(0,86,132,1) 79%, rgba(0,86,132,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff6a01",endColorstr="#005684",GradientType=1);
+                {% comment %} background: url({% static 'app_core/images/base-account.webp' %}) no-repeat center center; {% endcomment %}
                 background-size: cover;
             }
 
