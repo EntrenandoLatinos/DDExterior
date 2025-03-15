@@ -20,7 +20,7 @@
                         <div class="service-details__need-help-icon">
                             <span class="icon-phone-call"></span>
                         </div>
-                        <h2 class="service-details__need-help-title">Best solution <br> to your house & <br> office roofing</h2>
+                        <h2 class="service-details__need-help-title">Best solution <br> to your house & <br> office {{servicio.name}}</h2>
                         <div class="service-details__need-help-contact">
                             <p>Call Anytime</p>
                             <a href="tel:{{contact.phone1}}">{{contact.phone1}}</a>
@@ -32,7 +32,7 @@
                 <div class="service-details__right">
                     <div class="service-details__img">
                         {% if servicio.image_large %}
-                        <img src="{{servicio.image_large.url}}" alt="{{servicio.title}}">
+                        <img src="{{servicio.image_large.url}}" alt="{{servicio.title}}" style="height: 430px; width: 770px; object-fit: cover; object-position: center">
                         {% else %}
                         <img src="{% static 'app_core/assets/images/services/services-details-img-1.jpg' %}" alt="">
                         {% endif %}
@@ -52,7 +52,7 @@
                             <div class="comment-one__single">
                                 <div class="comment-one__image" style="display: flex; align-items: center; " >
                                     {% if subservicio.image %}
-                                    <img src="{{subservicio.image.url }}" alt="{{subservicio.title}}">
+                                    <img src="{{subservicio.image.url }}" alt="{{subservicio.title}}" style="height: 200px; width: 200px; object-fit: cover; object-position: center">
                                     {% else %}
                                     <img src="{% static 'app_core/assets/images/blog/comment-1-1.jpg' %}" alt="">
                                     {% endif %}
