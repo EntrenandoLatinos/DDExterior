@@ -16,35 +16,27 @@
             <!--Team One Single Start-->
             {% for service in servicios %}
             <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                <a href="{% url 'app_core:services_view' service.slug %}">
                 <div class="team-one__single">
                     <div class="team-one__img-box">
                         <div class="team-one__img">
                             {% if service.image %}
-                            <img src="{{service.image.url}}" alt="D&D Exterior {{service.name}}">
+                            <img src="{{service.image.url}}" alt="D&D Exterior {{service.name}}" style="height: 370px; width: 370px; object-fit: cover; object-position: center">
                             {% else %}
                             <img src="{% static 'app_core/assets/images/team/team-1-1.jpg' %}" alt="">
                             {% endif %}
                         </div>
-                        {% comment %} <ul class="list-unstyled team-one__social">
-                            <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        </ul> {% endcomment %}
                     </div>
                     <div class="team-one__content-box">
                         <div class="team-one__content">
-                            <h3 class="team-one__name"><a href="{% url 'app_core:services_view' service.slug %}">{{ service.name }}</a></h3>
-                            {% comment %} <p class="team-one__sub-title">Executive</p> {% endcomment %}
-                            {% comment %} <ul class="list-unstyled team-one__social-two">
-                                <li><a href="#"><i class="fas fa-share-alt"></i></a></li>
-                            </ul> {% endcomment %}
+                            <h3 class="team-one__name">{{ service.name }}</h3>
                             <div class="team-one__shape">
-                                <img src="{% static 'app_core/assets/images/shapes/team-one-shape.png' %}" alt="">
+                                <img src="{% static 'app_core/assets/images/shapes/team-one-shape.png' %}" alt="" >
                             </div>
                         </div>
                     </div>
                 </div>
+            </a>
             </div>
             {% endfor %}
         </div>
