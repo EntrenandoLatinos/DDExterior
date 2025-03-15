@@ -79,8 +79,11 @@
                     <div class="col-xl-6 col-lg-6">
                         <div class="team-details__left">
                             <div class="team-details__img">
+                                {% if about.image_mission %}<img src="{{about.image_mission.url}}" alt="">
+                                {% else %}
                                 <img src="{% static 'app_core/assets/images/team/team-details-img.jpg' %}" alt="">
-                                <div class="team-details__big-text">Mision</div>
+                                {% endif %}
+                                <div class="team-details__big-text">mission</div>
                             </div>
                         </div>
                     </div>
@@ -89,13 +92,13 @@
                             <div class="team-details__content">
                                 <div class="section-title text-left">
                                     <div class="section-sub-title-box">
-                                        <p class="section-sub-title">Mision</p>
+                                        <p class="section-sub-title">mission</p>
                                         <div class="section-title-shape-1">
                                             <img src="{% static 'app_core/images/shape.png' %}" alt="">
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="section-title__title">Our Mision in D&D Exterior</h2>
+                                <h2 class="section-title__title">Our mission in D&D Exterior</h2>
 
                                 <p class="team-details__text-2">{{about.mision|safe}}</p>
                             </div>

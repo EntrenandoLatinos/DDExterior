@@ -27,7 +27,10 @@
                             <div class="col-xl-6 col-lg-6">
                                 <div class="team-details__left">
                                     <div class="team-details__img">
+                                        {% if about.image_vision %}<img src="{{about.image_vision.url}}" alt="">
+                                        {% else %}
                                         <img src="{% static 'app_core/assets/images/team/team-details-img.jpg' %}" alt="">
+                                        {% endif %}
                                         <div class="team-details__big-text">Vision</div>
                                     </div>
                                 </div>
