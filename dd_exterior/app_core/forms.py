@@ -124,7 +124,7 @@ class BannerForm(forms.ModelForm):
 class AboutForm(forms.ModelForm):
     class Meta:
         model = About
-        fields = ['company_name', 'image','image_1','image_2', 'image_mission_vision', 'about', 'mision', 'vision','counter','counter_value', 'image_google', 'url_google']
+        fields = ['company_name', 'image','image_1','image_2','image_vision', 'image_mission', 'about', 'mision', 'vision','counter','counter_value', 'image_google', 'url_google']
         widgets = {
             'company_name': forms.TextInput(attrs={'class': 'form-control'}),
             'counter': forms.TextInput(attrs={'class': 'form-control'}),
